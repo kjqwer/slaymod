@@ -1,0 +1,13 @@
+.godot/
+bin/
+temp/
+/android/
+.git/
+.idea/
+.vs/
+publish/
+Properties/
+packages/
+.editorconfig
+*cs.uid
+*.user
