@@ -6,7 +6,17 @@
       "Bash(dir:*)",
       "Bash(find:*)",
       "Read(//d/steam/steamapps/common/Slay the Spire 2/**)",
-      "Read(//c/Users//**)"
+      "Read(//c/Users//**)",
+      "Bash(ls \"$APPDATA/../LocalLow/\"*\"Slay\"*)",
+      "Bash(ls:*)",
+      "Bash(unzip:*)",
+      "Read(//d/tmp/**)",
+      "Bash(dotnet tool list:*)",
+      "Bash(dotnet tool install:*)",
+      "Bash(ilspycmd:*)",
+      "Bash(dotnet build:*)",
+      "Bash(python3:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

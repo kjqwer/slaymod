@@ -41,7 +41,7 @@ public class PuppyPowerRelic : CustomRelicModel
         }
     }
 
-    // 战斗第一回合开始时，手牌中所有卡牌本回合耗能变为0
+    // 战斗第一回合开始时，手牌中所有卡牌本回合免费（能量+星辰均为0）
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (Owner?.PlayerCombatState?.Hand?.Cards == null)
@@ -55,7 +55,7 @@ public class PuppyPowerRelic : CustomRelicModel
             MainFile.Logger.Info("Puppy Power activated! Make cards free!");
             foreach (var card in Owner.PlayerCombatState.Hand.Cards)
             {
-                card.EnergyCost.SetThisTurn(0);
+                card.SetToFreeThisTurn();
             }
         }
     }

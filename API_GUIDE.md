@@ -22,6 +22,7 @@
 
 ### Mod 入口
 ```csharp
+using System.Reflection;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
@@ -38,10 +39,17 @@ public partial class MainFile : Node
     public static void Initialize()
     {
         Harmony harmony = new(ModId);
-        harmony.PatchAll(); // 自动应用所有 [HarmonyPatch] 标记的类
+        harmony.PatchAll(Assembly.GetExecutingAssembly());
     }
 }
 ```
+
+> **踩坑警告：`harmony.PatchAll()` 必须传入程序集参数！**
+>
+> 游戏通过反射 (`method.Invoke`) 调用 mod 的 `Initialize()` 方法。无参的 `harmony.PatchAll()` 内部使用 `Assembly.GetCallingAssembly()` 来确定扫描哪个程序集，但反射调用时该方法返回的是**游戏主程序集 (sts2)** 而非你的 mod 程序集，导致所有 `[HarmonyPatch]` 类都不会被发现和应用。
+>
+> **正确写法：** `harmony.PatchAll(Assembly.GetExecutingAssembly())`
+> **错误写法：** `harmony.PatchAll()` — Patch 静默失败，不报错但不生效
 
 ### 日志
 ```csharp
@@ -478,11 +486,18 @@ public sealed class Venerate : CardModel
 
 ### 修改卡牌费用
 ```csharp
-card.EnergyCost.SetThisTurn(0);       // 本回合费用设为 0
-card.EnergyCost.SetUntilPlayed(0);    // 直到打出前费用为 0
-card.EnergyCost.SetThisCombat(0);     // 本场战斗费用为 0
-card.EnergyCost.AddThisTurn(-1);      // 本回合费用 -1
+// 完全免费（能量 + 星辰等所有消耗归零）
+card.SetToFreeThisTurn();             // 本回合完全免费（推荐）
+card.SetToFreeThisCombat();           // 本场战斗完全免费
+
+// 仅修改能量费用（不影响星辰等其他消耗）
+card.EnergyCost.SetThisTurn(0);       // 本回合能量费用设为 0
+card.EnergyCost.SetUntilPlayed(0);    // 直到打出前能量费用为 0
+card.EnergyCost.SetThisCombat(0);     // 本场战斗能量费用为 0
+card.EnergyCost.AddThisTurn(-1);      // 本回合能量费用 -1
 ```
+
+> **注意：** 如果想让卡牌完全免费，应使用 `SetToFreeThisTurn()` 而非 `EnergyCost.SetThisTurn(0)`。后者只清除能量消耗，不会清除星辰等其他资源消耗（如储君的坠星需要 2 星辰）。
 
 ---
 
