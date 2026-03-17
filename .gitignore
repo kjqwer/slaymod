@@ -11,3 +11,4 @@ packages/
 .editorconfig
 *cs.uid
 *.user
+.claude/

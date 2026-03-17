@@ -4,7 +4,9 @@
       "Bash(cat:*)",
       "Bash(tree:*)",
       "Bash(dir:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Read(//d/steam/steamapps/common/Slay the Spire 2/**)",
+      "Read(//c/Users//**)"
     ],
     "deny": [],
     "ask": []
