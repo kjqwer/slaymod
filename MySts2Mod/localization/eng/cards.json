@@ -17,5 +17,12 @@
   "MYSTS2MOD-ROYAL_FORESIGHT_CARD.title": "Royal Foresight",
   "MYSTS2MOD-ROYAL_FORESIGHT_CARD.description": "Look at the top [blue]{Cards}[/blue] cards of your draw pile. You may put any number of them into your [gold]Discard Pile[/gold], then put the rest back in any order. Gain [blue]{Stars}[/blue] {singleStarIcon}.",
   "MYSTS2MOD-ROYAL_FORESIGHT_CARD.selectionScreenPrompt": "Choose cards to discard",
-  "MYSTS2MOD-ROYAL_FORESIGHT_CARD.reorderPrompt": "Choose order to place back (last selected will be on top)"
+  "MYSTS2MOD-ROYAL_FORESIGHT_CARD.reorderPrompt": "Choose order to place back (last selected will be on top)",
+  "MYSTS2MOD-SPECTRAL_GATING_CARD.title": "Spectral Gating",
+  "MYSTS2MOD-SPECTRAL_GATING_CARD.description": "[gold]Exhaust[/gold] all Status and Curse cards in your hand. For each card exhausted, gain [blue]2[/blue] {singleStarIcon} and draw [blue]1[/blue] card.",
+  "MYSTS2MOD-U_WARP_CARD.title": "U-Warp",
+  "MYSTS2MOD-U_WARP_CARD.description": "Choose and discard any number of cards in your hand. For each card discarded, draw [blue]1[/blue] card. Cards drawn this way cost [blue]1[/blue] less energy this turn.",
+  "MYSTS2MOD-U_WARP_CARD.selectionScreenPrompt": "Choose cards to discard",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.title": "Astral Direct Link",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.description": "Gain [blue]1[/blue] [gold]Astral Direct Link[/gold]."
 }

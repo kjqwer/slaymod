@@ -1,5 +1,8 @@
 {
   "MYSTS2MOD-PUPPY_POWER_RELIC.title": "小狗之力",
   "MYSTS2MOD-PUPPY_POWER_RELIC.flavor": "汪汪！",
-  "MYSTS2MOD-PUPPY_POWER_RELIC.description": "战斗开始时，你[gold]手牌[/gold]中所有卡牌本回合[blue]免费[/blue]。"
+  "MYSTS2MOD-PUPPY_POWER_RELIC.description": "战斗开始时，你[gold]手牌[/gold]中所有卡牌本回合[blue]免费[/blue]。",
+  "MYSTS2MOD-THE_ROYAL_TUTORS_ASSIGNMENT_RELIC.title": "太傅的课题",
+  "MYSTS2MOD-THE_ROYAL_TUTORS_ASSIGNMENT_RELIC.flavor": "严格的教导。",
+  "MYSTS2MOD-THE_ROYAL_TUTORS_ASSIGNMENT_RELIC.description": "每回合开始时，额外获得 [blue]1[/blue] 点[gold]能量[/gold]和 [blue]1[/blue] 点{singleStarIcon}。但在你的回合结束时，如果你的能量或星辰没有全部清零，下回合你将获得 [blue]1[/blue] 层[gold]虚弱[/gold]和 [blue]1[/blue] 层[gold]脆弱[/gold]。"
 }

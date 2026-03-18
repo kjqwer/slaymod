@@ -17,5 +17,12 @@
   "MYSTS2MOD-ROYAL_FORESIGHT_CARD.title": "未雨绸缪",
   "MYSTS2MOD-ROYAL_FORESIGHT_CARD.description": "检视抽牌堆顶的[blue]{Cards}[/blue]张牌。你可以将其中任意数量的牌放入[gold]弃牌堆[/gold]，然后按任意顺序放回其余的牌。获得[blue]{Stars}[/blue]点{singleStarIcon}。",
   "MYSTS2MOD-ROYAL_FORESIGHT_CARD.selectionScreenPrompt": "选择放入弃牌堆的牌",
-  "MYSTS2MOD-ROYAL_FORESIGHT_CARD.reorderPrompt": "选择放回抽牌堆的顺序（最后选择的在最上方）"
+  "MYSTS2MOD-ROYAL_FORESIGHT_CARD.reorderPrompt": "选择放回抽牌堆的顺序（最后选择的在最上方）",
+  "MYSTS2MOD-SPECTRAL_GATING_CARD.title": "星谱选通",
+  "MYSTS2MOD-SPECTRAL_GATING_CARD.description": "[gold]消耗[/gold]手牌中所有的状态牌和诅咒牌。每消耗一张，获得[blue]2[/blue]点{singleStarIcon}并抽[blue]1[/blue]张牌。",
+  "MYSTS2MOD-U_WARP_CARD.title": "U型折跃",
+  "MYSTS2MOD-U_WARP_CARD.description": "选择并丢弃手牌中的任意数量卡牌。每丢弃一张，抽[blue]1[/blue]张牌。本回合内，以此法抽到的牌耗能减少[blue]1[/blue]点。",
+  "MYSTS2MOD-U_WARP_CARD.selectionScreenPrompt": "选择要丢弃的牌",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.title": "星际直连",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.description": "获得[blue]1[/blue]层[gold]星际直连[/gold]（每打出0费牌时获得格挡，每打出第三张额外获得能量）。"
 }

@@ -4,5 +4,8 @@
   "MYSTS2MOD-FORGE_GUARD_POWER.smartDescription": "每当你[gold]铸造[/gold]时，获得铸造量[blue]{Amount}[/blue]倍的[gold]格挡[/gold]。",
   "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.title": "下回合能量减少",
   "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.description": "在下回合开始时，失去[blue]{Amount}[/blue]点[gold]能量[/gold]。",
-  "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.smartDescription": "在下回合开始时，失去[blue]{Amount}[/blue]点[gold]能量[/gold]।"
+  "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.smartDescription": "在下回合开始时，失去[blue]{Amount}[/blue]点[gold]能量[/gold]。",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.title": "星际直连",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.description": "每当你打出 0 费牌时，获得 [blue]{Amount}[/blue] 点[gold]格挡[/gold]；每当你在一回合内打出第三张 0 费牌时，额外获得 [blue]1[/blue] 点[gold]能量[/gold]。本回合还需打出 [blue]{CardsLeft}[/blue] 张 0 费牌。",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.smartDescription": "每当你打出 0 费牌时，获得 [blue]{Amount}[/blue] 点[gold]格挡[/gold]；每当你在一回合内打出第三张 0 费牌时，额外获得 [blue]1[/blue] 点[gold]能量[/gold]。本回合还需打出 [blue]{CardsLeft}[/blue] 张 0 费牌。"
 }

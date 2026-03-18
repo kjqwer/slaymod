@@ -4,5 +4,8 @@
   "MYSTS2MOD-FORGE_GUARD_POWER.smartDescription": "Whenever you [gold]Forge[/gold], gain [blue]{Amount}[/blue] times the forge amount as [gold]Block[/gold].",
   "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.title": "Energy Down Next Turn",
   "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.description": "At the start of your next turn, lose [blue]{Amount}[/blue] [gold]Energy[/gold].",
-  "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.smartDescription": "At the start of your next turn, lose [blue]{Amount}[/blue] [gold]Energy[/gold]."
+  "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.smartDescription": "At the start of your next turn, lose [blue]{Amount}[/blue] [gold]Energy[/gold].",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.title": "Astral Direct Link",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.description": "Whenever you play a 0-cost card, gain [blue]{Amount}[/blue] [gold]Block[/gold]. Every 3rd 0-cost card played in a single turn gives [blue]1[/blue] extra [gold]Energy[/gold]. Cards left to play: [blue]{CardsLeft}[/blue].",
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.smartDescription": "Whenever you play a 0-cost card, gain [blue]{Amount}[/blue] [gold]Block[/gold]. Every 3rd 0-cost card played in a single turn gives [blue]1[/blue] extra [gold]Energy[/gold]. Cards left to play: [blue]{CardsLeft}[/blue]."
 }

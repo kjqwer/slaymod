@@ -1,5 +1,8 @@
 {
   "MYSTS2MOD-PUPPY_POWER_RELIC.title": "Puppy Power",
   "MYSTS2MOD-PUPPY_POWER_RELIC.flavor": "Woof!",
-  "MYSTS2MOD-PUPPY_POWER_RELIC.description": "At the start of combat, all cards in your [gold]Hand[/gold] are [blue]free[/blue] for the turn."
+  "MYSTS2MOD-PUPPY_POWER_RELIC.description": "At the start of combat, all cards in your [gold]Hand[/gold] are [blue]free[/blue] for the turn.",
+  "MYSTS2MOD-THE_ROYAL_TUTORS_ASSIGNMENT_RELIC.title": "The Royal Tutor's Assignment",
+  "MYSTS2MOD-THE_ROYAL_TUTORS_ASSIGNMENT_RELIC.flavor": "Strict teachings.",
+  "MYSTS2MOD-THE_ROYAL_TUTORS_ASSIGNMENT_RELIC.description": "At the start of your turn, gain [blue]1[/blue] [gold]Energy[/gold] and [blue]1[/blue] {singleStarIcon}. At the end of your turn, if your Energy or Stars are not fully depleted, gain [blue]1[/blue] [gold]Weak[/gold] and [blue]1[/blue] [gold]Vulnerable[/gold] next turn."
 }
