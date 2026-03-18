@@ -1,4 +1,10 @@
 {
   "MYSTS2MOD-FORGE_GUARD_CARD.title": "锻铁护卫",
-  "MYSTS2MOD-FORGE_GUARD_CARD.description": "[gold]铸造[/gold][blue]{Forge}[/blue]。获得[blue]1[/blue]层[gold]锻铁护卫[/gold]。"
+  "MYSTS2MOD-FORGE_GUARD_CARD.description": "[gold]铸造[/gold][blue]{Forge}[/blue]。获得[blue]1[/blue]层[gold]锻铁护卫[/gold]。",
+  "MYSTS2MOD-SHIELD_BLADE_CARD.title": "盾剑",
+  "MYSTS2MOD-SHIELD_BLADE_CARD.description": "[gold]铸造[/gold][blue]{Forge}[/blue]。获得[blue]{Block}[/blue]点[gold]格挡[/gold]。",
+  "MYSTS2MOD-STAR_CHARGE_CARD.title": "星光充能",
+  "MYSTS2MOD-STAR_CHARGE_CARD.description": "获得{Energy:energyIcons()}。此牌将返回你的[gold]手牌[/gold]。",
+  "MYSTS2MOD-ROYAL_CRUCIBLE_CARD.title": "王权熔炉",
+  "MYSTS2MOD-ROYAL_CRUCIBLE_CARD.description": "[gold]消耗[/gold]你[gold]手牌[/gold]中所有牌。每[gold]消耗[/gold]一张，[gold]铸造[/gold][blue]10[/blue]并获得[blue]10[/blue]点[gold]格挡[/gold]。"
 }

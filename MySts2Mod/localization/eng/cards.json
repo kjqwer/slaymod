@@ -1,4 +1,10 @@
 {
   "MYSTS2MOD-FORGE_GUARD_CARD.title": "Forge Guard",
-  "MYSTS2MOD-FORGE_GUARD_CARD.description": "[gold]Forge[/gold] [blue]{Forge}[/blue]. Gain [blue]1[/blue] [gold]Forge Guard[/gold]."
+  "MYSTS2MOD-FORGE_GUARD_CARD.description": "[gold]Forge[/gold] [blue]{Forge}[/blue]. Gain [blue]1[/blue] [gold]Forge Guard[/gold].",
+  "MYSTS2MOD-SHIELD_BLADE_CARD.title": "Shield Blade",
+  "MYSTS2MOD-SHIELD_BLADE_CARD.description": "[gold]Forge[/gold] [blue]{Forge}[/blue]. Gain [blue]{Block}[/blue] [gold]Block[/gold].",
+  "MYSTS2MOD-STAR_CHARGE_CARD.title": "Star Charge",
+  "MYSTS2MOD-STAR_CHARGE_CARD.description": "Gain {Energy:energyIcons()}. This card returns to your [gold]Hand[/gold].",
+  "MYSTS2MOD-ROYAL_CRUCIBLE_CARD.title": "Royal Crucible",
+  "MYSTS2MOD-ROYAL_CRUCIBLE_CARD.description": "[gold]Exhaust[/gold] all cards in your [gold]Hand[/gold]. For each card [gold]Exhausted[/gold], [gold]Forge[/gold] [blue]10[/blue] and gain [blue]10[/blue] [gold]Block[/gold]."
 }
