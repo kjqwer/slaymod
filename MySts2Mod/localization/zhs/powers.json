@@ -1,0 +1,5 @@
+{
+  "MYSTS2MOD-FORGE_GUARD_POWER.title": "锻铁护卫",
+  "MYSTS2MOD-FORGE_GUARD_POWER.description": "每当你[gold]锻造[/gold]时，获得锻造量[blue]2[/blue]倍的[gold]格挡[/gold]。",
+  "MYSTS2MOD-FORGE_GUARD_POWER.smartDescription": "每当你[gold]锻造[/gold]时，获得锻造量[blue]{Amount}[/blue]倍的[gold]格挡[/gold]。"
+}

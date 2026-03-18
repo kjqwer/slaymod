@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace MySts2Mod.Relics;
 
-[Pool(typeof(RegentRelicPool))]
+[Pool(typeof(SharedRelicPool))]
 public class PuppyPowerRelic : CustomRelicModel
 {
-    public override RelicRarity Rarity => RelicRarity.Starter;
+    public override RelicRarity Rarity => RelicRarity.Common;
 
     public override string PackedIconPath
     {

@@ -14,7 +14,8 @@
 9. [角色修改 (Harmony Patch)](#9-角色修改-harmony-patch)
 10. [本地化 (Localization)](#10-本地化-localization)
 11. [资源路径 (Asset)](#11-资源路径-asset)
-12. [角色一览](#12-角色一览)
+12. [常见踩坑与注意事项](#12-常见踩坑与注意事项)
+13. [角色一览](#13-角色一览)
 
 ---
 
@@ -681,7 +682,7 @@ public static class RegentStartingDeckPatch
 #### cards.json
 ```json
 {
-  "MODID-CARD_NAME.name": "卡牌名称",
+  "MODID-CARD_NAME.title": "卡牌名称",
   "MODID-CARD_NAME.description": "造成[blue]{Damage}[/blue]点伤害。"
 }
 ```
@@ -689,8 +690,9 @@ public static class RegentStartingDeckPatch
 #### powers.json
 ```json
 {
-  "MODID-POWER_NAME.name": "能力名称",
-  "MODID-POWER_NAME.description": "能力效果描述。"
+  "MODID-POWER_NAME.title": "能力名称",
+  "MODID-POWER_NAME.description": "能力效果描述。",
+  "MODID-POWER_NAME.smartDescription": "含动态变量的能力效果描述，如 [blue]{Amount}[/blue]。"
 }
 ```
 
@@ -776,7 +778,92 @@ MySts2Mod/
 
 ---
 
-## 12. 角色一览
+## 12. 常见踩坑与注意事项
+
+### 12.1 `harmony.PatchAll()` 必须传程序集参数
+
+见 [1. 项目结构与入口](#1-项目结构与入口) 中的踩坑警告。
+
+### 12.2 `dotnet build` 不会重建 PCK
+
+- `dotnet build` 只编译 DLL 并部署到游戏 mods 目录
+- **`dotnet publish` 才会触发 Godot PCK 导出**，将本地化 JSON、图片等资源打包到 `.pck` 文件中
+- 如果你新增或修改了本地化文件 (`localization/` 下的 JSON) 或图片资源，**必须运行 `dotnet publish`** 才能在游戏中生效
+- 症状：DLL 功能正常但本地化文字缺失，游戏可能在抽到缺失本地化的卡牌时冻结
+
+### 12.3 本地化键名必须使用 `.title` 而非 `.name`
+
+游戏中**所有模型**（卡牌、能力、遗物）的显示名称键均使用 `.title` 后缀：
+```
+MODID-CLASS_NAME.title         // 正确
+MODID-CLASS_NAME.name          // 错误 - 不会被识别
+```
+
+构建时的 `STS001` 错误会提示缺少本地化键，注意核对键名。
+
+### 12.4 能力(Power)本地化必须包含 `.smartDescription`
+
+能力有三个本地化键：
+```json
+{
+  "MODID-POWER_NAME.title": "能力名称",
+  "MODID-POWER_NAME.description": "固定描述文本（不带动态变量）",
+  "MODID-POWER_NAME.smartDescription": "含动态变量的描述（战斗中实际显示的）"
+}
+```
+
+- `.description` 是基础描述，使用**硬编码数值**（如 `[blue]2[/blue]`）
+- `.smartDescription` 使用**动态占位符**（如 `[blue]{Amount}[/blue]`），战斗中根据实际层数渲染
+- 如果缺少 `.smartDescription`，能力获得后鼠标悬停不会显示描述
+
+### 12.5 能力描述中使用 `{Amount}` 而非 `{0}`
+
+能力描述使用 SmartFormat 语法，`{0}` 位置参数**不被支持**，会导致显示为 `System.Collections.Generic.Dictionary...`。
+
+正确使用 `{Amount}` 引用能力的当前层数：
+```json
+"smartDescription": "每当你[gold]锻造[/gold]时，获得锻造量[blue]{Amount}[/blue]倍的[gold]格挡[/gold]。"
+```
+
+错误写法（会显示 Dictionary.ToString()）：
+```json
+"smartDescription": "每当你[gold]锻造[/gold]时，获得锻造量[blue]{0}[/blue]倍的[gold]格挡[/gold]。"
+```
+
+#### SmartFormat 常用语法参考
+```
+{Amount}                              // 能力层数
+{Amount:abs()}                        // 绝对值（用于可能为负的值如力量）
+{Amount:plural:time|times}            // 复数形式
+{Amount:cond:<0?Decreases|Increases}  // 条件判断
+{Amount:energyIcons()}                // 能量图标
+{singleStarIcon}                      // 星辰图标（内置变量）
+```
+
+游戏自动注入的能力描述变量：
+| 变量 | 类型 | 说明 |
+|------|------|------|
+| `{Amount}` | decimal | 能力当前层数 |
+| `{OnPlayer}` | bool | 持有者是否为玩家 |
+| `{IsMultiplayer}` | bool | 是否多人模式 |
+| `{PlayerCount}` | int | 玩家数量 |
+| `{OwnerName}` | string | 持有者名称 |
+| `{singleStarIcon}` | string | 星辰图标 |
+| `{energyPrefix}` | string | 能量前缀图标 |
+
+此外，能力的 `CanonicalVars` 中定义的 DynamicVar 也会被注入到描述中。
+
+### 12.6 能力卡(Power)不能是 Common 稀有度
+
+`CardType.Power`（能力牌）的稀有度**最低为 `Uncommon`**。如果设为 `Common`，构建时会报错。
+
+### 12.7 卡牌免费应使用 `SetToFreeThisTurn()`
+
+见 [5. 卡牌开发 - 修改卡牌费用](#修改卡牌费用) 中的注意事项。
+
+---
+
+## 13. 角色一览
 
 ### Regent (储君)
 | 属性 | 值 |

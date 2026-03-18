@@ -16,7 +16,9 @@
       "Bash(ilspycmd:*)",
       "Bash(dotnet build:*)",
       "Bash(python3:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Read(//d/1awd/**)",
+      "Bash(dotnet publish)"
     ],
     "deny": [],
     "ask": []
