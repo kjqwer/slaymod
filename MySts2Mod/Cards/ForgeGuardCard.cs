@@ -39,7 +39,7 @@ public class ForgeGuardCard() : CustomCardModel(
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
         await ForgeCmd.Forge(DynamicVars.Forge.IntValue, Owner, this);
-        await PowerCmd.Apply<ForgeGuardPower>(Owner.Creature, 2m, Owner.Creature, this);
+        await PowerCmd.Apply<ForgeGuardPower>(Owner.Creature, 1m, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
