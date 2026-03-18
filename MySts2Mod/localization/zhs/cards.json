@@ -6,5 +6,16 @@
   "MYSTS2MOD-STAR_CHARGE_CARD.title": "星光充能",
   "MYSTS2MOD-STAR_CHARGE_CARD.description": "获得{Energy:energyIcons()}。此牌将返回你的[gold]手牌[/gold]。",
   "MYSTS2MOD-ROYAL_CRUCIBLE_CARD.title": "王权熔炉",
-  "MYSTS2MOD-ROYAL_CRUCIBLE_CARD.description": "[gold]消耗[/gold]你[gold]手牌[/gold]中所有牌。每[gold]消耗[/gold]一张，[gold]铸造[/gold][blue]10[/blue]并获得[blue]10[/blue]点[gold]格挡[/gold]。"
+  "MYSTS2MOD-ROYAL_CRUCIBLE_CARD.description": "[gold]消耗[/gold]你[gold]手牌[/gold]中所有牌。每[gold]消耗[/gold]一张，[gold]铸造[/gold][blue]10[/blue]并获得[blue]10[/blue]点[gold]格挡[/gold]。",
+  "MYSTS2MOD-ASTRAL_OVERDRAFT_CARD.title": "星穹透支",
+  "MYSTS2MOD-ASTRAL_OVERDRAFT_CARD.description": "获得[blue]{Stars}[/blue]点{singleStarIcon}。在下回合开始时，失去[blue]{EnergyDownNextTurnPower}[/blue]点[gold]能量[/gold]。",
+  "MYSTS2MOD-WRATH_OF_THE_CROWN_CARD.title": "王权震慑",
+  "MYSTS2MOD-WRATH_OF_THE_CROWN_CARD.description": "造成[blue]{CalculatedDamage}[/blue]点伤害。如果你手牌中有[gold]君王之剑[/gold]，则附加等于其面板伤害[blue]50%[/blue]的额外伤害，且不[gold]消耗[/gold][gold]君王之剑[/gold]。\n[gold]铸造[/gold][blue]{Forge}[/blue]。",
+  "MYSTS2MOD-RUTHLESS_CONSCRIPTION_CARD.title": "残暴征召",
+  "MYSTS2MOD-RUTHLESS_CONSCRIPTION_CARD.description": "[gold]消耗[/gold]手牌中的一张牌，并立刻将一张[gold]仆从打击[/gold]或[gold]仆从捐躯[/gold]加入手牌。抽[blue]1[/blue]张牌。",
+  "MYSTS2MOD-RUTHLESS_CONSCRIPTION_CARD.selectionScreenPrompt": "选择要消耗的牌",
+  "MYSTS2MOD-ROYAL_FORESIGHT_CARD.title": "未雨绸缪",
+  "MYSTS2MOD-ROYAL_FORESIGHT_CARD.description": "检视抽牌堆顶的[blue]{Cards}[/blue]张牌。你可以将其中任意数量的牌放入[gold]弃牌堆[/gold]，然后按任意顺序放回其余的牌。获得[blue]{Stars}[/blue]点{singleStarIcon}。",
+  "MYSTS2MOD-ROYAL_FORESIGHT_CARD.selectionScreenPrompt": "选择放入弃牌堆的牌",
+  "MYSTS2MOD-ROYAL_FORESIGHT_CARD.reorderPrompt": "选择放回抽牌堆的顺序（最后选择的在最上方）"
 }

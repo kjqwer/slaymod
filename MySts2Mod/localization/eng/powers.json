@@ -1,5 +1,8 @@
 {
   "MYSTS2MOD-FORGE_GUARD_POWER.title": "Forge Guard",
-  "MYSTS2MOD-FORGE_GUARD_POWER.description": "Whenever you [gold]Forge[/gold], gain [gold]Block[/gold] equal to [blue]1[/blue] times the [gold]Forge[/gold] amount.",
-  "MYSTS2MOD-FORGE_GUARD_POWER.smartDescription": "Whenever you [gold]Forge[/gold], gain [gold]Block[/gold] equal to [blue]{Amount}[/blue] times the [gold]Forge[/gold] amount."
+  "MYSTS2MOD-FORGE_GUARD_POWER.description": "Whenever you [gold]Forge[/gold], gain [blue]{Amount}[/blue] times the forge amount as [gold]Block[/gold].",
+  "MYSTS2MOD-FORGE_GUARD_POWER.smartDescription": "Whenever you [gold]Forge[/gold], gain [blue]{Amount}[/blue] times the forge amount as [gold]Block[/gold].",
+  "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.title": "Energy Down Next Turn",
+  "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.description": "At the start of your next turn, lose [blue]{Amount}[/blue] [gold]Energy[/gold].",
+  "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.smartDescription": "At the start of your next turn, lose [blue]{Amount}[/blue] [gold]Energy[/gold]."
 }
