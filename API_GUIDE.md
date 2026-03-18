@@ -861,6 +861,44 @@ MODID-CLASS_NAME.name          // 错误 - 不会被识别
 
 见 [5. 卡牌开发 - 修改卡牌费用](#修改卡牌费用) 中的注意事项。
 
+### 12.8 修改原版卡牌基础费用需用反射
+
+`CardEnergyCost` 没有公开的 `SetBaseValue` 方法。`SetCustomBaseCost()` 虽然存在但内部会调用 `AssertMutable()`，在构造函数 Postfix 中 canonical 实例尚未标记为 mutable，会抛异常。
+
+正确做法是通过反射直接设置私有字段 `_base`：
+```csharp
+using System.Reflection;
+using MegaCrit.Sts2.Core.Entities.Cards;
+
+internal static class EnergyCostHelper
+{
+    private static readonly FieldInfo BaseField =
+        typeof(CardEnergyCost).GetField("_base", BindingFlags.NonPublic | BindingFlags.Instance)!;
+
+    public static void SetBaseCost(CardEnergyCost cost, int value)
+    {
+        BaseField.SetValue(cost, value);
+    }
+}
+```
+
+然后在 Harmony Postfix 中使用：
+```csharp
+[HarmonyPatch(typeof(SomeCard), MethodType.Constructor)]
+public static class SomeCardCostPatch
+{
+    public static void Postfix(SomeCard __instance)
+    {
+        EnergyCostHelper.SetBaseCost(__instance.EnergyCost, 0);
+    }
+}
+```
+
+注意事项：
+- **不要用** `EnergyCost.SetCustomBaseCost()` — 在构造函数 Postfix 中会因 `AssertMutable` 失败
+- **不要用** `EnergyCost.SetThisTurn()` / `SetThisCombat()` — 这些是临时修改，不是永久改基础值
+- **不要用** `EnergyCost.UpgradeBy()` — 内部也调用 `SetCustomBaseCost`，同样受 `AssertMutable` 限制
+
 ---
 
 ## 13. 角色一览
