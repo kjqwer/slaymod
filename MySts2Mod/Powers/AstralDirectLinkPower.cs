@@ -19,7 +19,7 @@ public class AstralDirectLinkPower : CustomPowerModel
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
     public override int DisplayAmount => base.DynamicVars[_cardsLeftKey].IntValue;
-    public override bool IsInstanced => true;
+    public override bool IsInstanced => false;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {
@@ -44,7 +44,7 @@ public class AstralDirectLinkPower : CustomPowerModel
 
             if (DynamicVars[_cardsLeftKey].IntValue <= 0)
             {
-                await PlayerCmd.GainEnergy(1, Owner.Player);
+                await PlayerCmd.GainEnergy((int)Amount, Owner.Player);
                 DynamicVars[_cardsLeftKey].BaseValue = 3m;
                 InvokeDisplayAmountChanged();
             }

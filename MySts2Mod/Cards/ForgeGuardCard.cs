@@ -16,7 +16,7 @@ namespace MySts2Mod.Cards;
 public class ForgeGuardCard() : CustomCardModel(
     2,                      // 2费
     CardType.Power,         // 能力牌
-    CardRarity.Uncommon,    // 罕见
+    CardRarity.Rare,        // 稀有
     TargetType.Self         // 自身
 )
 {

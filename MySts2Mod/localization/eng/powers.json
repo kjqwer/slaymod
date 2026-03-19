@@ -7,5 +7,17 @@
   "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.smartDescription": "At the start of your next turn, lose [blue]{Amount}[/blue] [gold]Energy[/gold].",
   "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.title": "Astral Direct Link",
   "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.description": "Whenever you play a 0-cost card, gain [blue]{Amount}[/blue] [gold]Block[/gold]. Every 3rd 0-cost card played in a single turn gives [blue]1[/blue] extra [gold]Energy[/gold]. Cards left to play: [blue]{CardsLeft}[/blue].",
-  "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.smartDescription": "Whenever you play a 0-cost card, gain [blue]{Amount}[/blue] [gold]Block[/gold]. Every 3rd 0-cost card played in a single turn gives [blue]1[/blue] extra [gold]Energy[/gold]. Cards left to play: [blue]{CardsLeft}[/blue]."
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_POWER.smartDescription": "Whenever you play a 0-cost card, gain [blue]{Amount}[/blue] [gold]Block[/gold]. Every 3rd 0-cost card played in a single turn gives [blue]1[/blue] extra [gold]Energy[/gold]. Cards left to play: [blue]{CardsLeft}[/blue].",
+  "MYSTS2MOD-EMERGENCY_EXTRACTION_POWER.title": "Emergency Extraction",
+  "MYSTS2MOD-EMERGENCY_EXTRACTION_POWER.description": "At the end of your turn, if you did not play the tracked card, take [blue]{Amount}[/blue] damage.",
+  "MYSTS2MOD-EMERGENCY_EXTRACTION_POWER.smartDescription": "At the end of your turn, if you did not play the tracked card, take [blue]{Amount}[/blue] damage.",
+  "MYSTS2MOD-STRATEGIC_RESERVE_POWER.title": "Strategic Reserve",
+  "MYSTS2MOD-STRATEGIC_RESERVE_POWER.description": "The tracked card costs [blue]{Amount}[/blue] less energy next turn.",
+  "MYSTS2MOD-STRATEGIC_RESERVE_POWER.smartDescription": "The tracked card costs [blue]{Amount}[/blue] less energy next turn.",
+  "MYSTS2MOD-CORE_EXTRACTION_POWER.title": "Core Extraction",
+  "MYSTS2MOD-CORE_EXTRACTION_POWER.description": "At the start of your next turn, add [blue]{Amount}[/blue] random Attack of the exhausted rarity to your hand. It costs 0.",
+  "MYSTS2MOD-CORE_EXTRACTION_POWER.smartDescription": "At the start of your next turn, add [blue]{Amount}[/blue] random Attack of the exhausted rarity to your hand. It costs 0.",
+  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_POWER.title": "Bottleneck Breakthrough",
+  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_POWER.description": "Whenever you receive a debuff or a Status/Curse card, gain 1 Energy and draw 1 card. Max [blue]{Amount}[/blue] times per turn. Triggers left: [blue]{TriggersLeft}[/blue].",
+  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_POWER.smartDescription": "Whenever you receive a debuff or a Status/Curse card, gain 1 Energy and draw 1 card. Max [blue]{Amount}[/blue] times per turn. Triggers left: [blue]{TriggersLeft}[/blue]."
 }

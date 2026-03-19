@@ -18,7 +18,15 @@
       "Bash(python3:*)",
       "Bash(python:*)",
       "Read(//d/1awd/**)",
-      "Bash(dotnet publish)"
+      "Bash(dotnet publish)",
+      "Bash(dotnet new:*)",
+      "Bash(dotnet sln:*)",
+      "Bash(dotnet publish:*)",
+      "Bash(echo:*)",
+      "Bash(powershell -Command \"Write-Host $env:APPDATA\")",
+      "Read(//d/steam/**)",
+      "Bash(iconv:*)",
+      "Bash(xxd:*)"
     ],
     "deny": [],
     "ask": []

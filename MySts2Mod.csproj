@@ -71,7 +71,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" PrivateAssets="All" />
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="0.1.6" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
         <AdditionalFiles Include="MySts2Mod/localization/**/*.json"/>
     </ItemGroup>
@@ -116,7 +116,7 @@
         <Copy SourceFiles="MySts2Mod.json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
         <Message Text="Copying BaseLib to mods folder." Importance="high" />
         <ItemGroup>
-            <BaseLibFiles Include="$(NuGetPackageRoot)/alchyr.sts2.baselib/**/lib/**/BaseLib.dll;$(NuGetPackageRoot)/alchyr.sts2.baselib/**/Content/BaseLib.pck;$(NuGetPackageRoot)/alchyr.sts2.baselib/**/Content/BaseLib.json;"/>
+            <BaseLibFiles Include="$(NuGetPackageRoot)/alchyr.sts2.baselib/0.1.6/lib/**/BaseLib.dll;$(NuGetPackageRoot)/alchyr.sts2.baselib/0.1.6/Content/BaseLib.pck;$(NuGetPackageRoot)/alchyr.sts2.baselib/0.1.6/Content/BaseLib.json;"/>
         </ItemGroup>
         <Copy SourceFiles="@(BaseLibFiles)" DestinationFolder="$(ModsPath)BaseLib/" />
     </Target>

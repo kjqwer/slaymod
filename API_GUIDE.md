@@ -861,7 +861,91 @@ MODID-CLASS_NAME.name          // 错误 - 不会被识别
 
 见 [5. 卡牌开发 - 修改卡牌费用](#修改卡牌费用) 中的注意事项。
 
-### 12.8 修改原版卡牌基础费用需用反射
+### 12.8 禁止直接 `new` Power 实例传给 `PowerCmd.Apply` —— 必须使用泛型 `Apply<T>`
+
+**这是最容易犯的严重 bug，会导致卡牌打出后卡死在屏幕上。**
+
+#### 错误原因
+
+游戏的模型系统基于 **Canonical / Mutable 模式**：
+- `new SomePower()` 创建的对象 `IsMutable = false`（canonical 状态）
+- `PowerCmd.Apply(power, ...)` 的 instance 重载内部会调用 `power.AssertMutable()`，对 canonical 对象直接抛出 `CanonicalModelException`
+- 如果 Power 使用了 `GetInternalData<T>()`（通过 `InitInternalData()` 初始化），直接 `new` 出来的对象 `_internalData = null`，因为 `InitInternalData()` 只在 `DeepCloneFields()` 中被调用（即只有通过 `MutableClone()` 克隆时才会初始化）
+
+异常被抛出后，`OnPlay` 的 async Task 中断，卡牌停留在 Play 堆无法移动到结果堆（Exhaust/Discard），**表现为卡图卡在屏幕上不消失、效果不生效**。
+
+#### 错误写法
+```csharp
+// 错误！直接 new 实例 + 对象初始化器
+var power = new MyPower { TrackedCard = card, Amount = 5 };
+await PowerCmd.Apply(power, Owner.Creature, power.Amount, Owner.Creature, this);
+```
+
+#### 正确写法（参考游戏源码 Nightmare.cs）
+```csharp
+// 正确！使用泛型 Apply<T>，它会内部从 canonical 做 MutableClone()
+// 返回值就是已施加到目标上的 mutable Power 实例
+var power = await PowerCmd.Apply<MyPower>(Owner.Creature, 5, Owner.Creature, this);
+power.SetTrackedCard(card);  // 在 Apply 之后设置自定义数据
+```
+
+#### Power 中的数据设置方法
+```csharp
+// 错误！属性 setter 在对象初始化器中调用时 InternalData 尚未初始化
+public CardModel TrackedCard
+{
+    set { GetInternalData<Data>().trackedCard = value; }
+}
+
+// 正确！公开方法，在 Apply<T> 返回后由卡牌代码调用
+public void SetTrackedCard(CardModel card)
+{
+    Data data = GetInternalData<Data>();
+    data.trackedCard = card;
+}
+```
+
+#### 完整示例（带 InternalData 的 Instanced Power）
+
+Power 定义：
+```csharp
+public class MyTrackingPower : CustomPowerModel
+{
+    private class Data { public CardModel trackedCard; }
+
+    public override bool IsInstanced => true;
+    // ... Type, StackType ...
+
+    protected override object InitInternalData() => new Data();
+
+    public void SetTrackedCard(CardModel card)
+    {
+        GetInternalData<Data>().trackedCard = card;
+    }
+
+    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    {
+        if (side != Owner.Side) return;
+        var data = GetInternalData<Data>();
+        // 使用 data.trackedCard 做逻辑...
+        await PowerCmd.Remove(this);
+    }
+}
+```
+
+卡牌中使用：
+```csharp
+var power = await PowerCmd.Apply<MyTrackingPower>(Owner.Creature, amount, Owner.Creature, this);
+power.SetTrackedCard(selectedCard);
+```
+
+#### 不带自定义数据的 Power（更简单）
+```csharp
+// 不需要返回值，直接一行
+await PowerCmd.Apply<MySimplePower>(Owner.Creature, amount, Owner.Creature, this);
+```
+
+### 12.9 修改原版卡牌基础费用需用反射
 
 `CardEnergyCost` 没有公开的 `SetBaseValue` 方法。`SetCustomBaseCost()` 虽然存在但内部会调用 `AssertMutable()`，在构造函数 Postfix 中 canonical 实例尚未标记为 mutable，会抛异常。
 

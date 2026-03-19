@@ -24,5 +24,16 @@
   "MYSTS2MOD-U_WARP_CARD.description": "Choose and discard any number of cards in your hand. For each card discarded, draw [blue]1[/blue] card. Cards drawn this way cost [blue]1[/blue] less energy this turn.",
   "MYSTS2MOD-U_WARP_CARD.selectionScreenPrompt": "Choose cards to discard",
   "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.title": "Astral Direct Link",
-  "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.description": "Gain [blue]1[/blue] [gold]Astral Direct Link[/gold]."
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.description": "Gain [blue]1[/blue] [gold]Astral Direct Link[/gold].",
+  "MYSTS2MOD-EMERGENCY_EXTRACTION_CARD.title": "Emergency Extraction",
+  "MYSTS2MOD-EMERGENCY_EXTRACTION_CARD.description": "[gold]Exhaust[/gold].\nChoose a card from your [gold]Discard Pile[/gold] and put it into your hand. It costs [blue]0[/blue] this turn. At the end of your turn, if you did not play this card, take [blue]5[/blue] damage.",
+  "MYSTS2MOD-EMERGENCY_EXTRACTION_CARD.selectionScreenPrompt": "Choose a card to put into hand",
+  "MYSTS2MOD-STRATEGIC_RESERVE_CARD.title": "Strategic Reserve",
+  "MYSTS2MOD-STRATEGIC_RESERVE_CARD.description": "[gold]Exhaust[/gold].\nChoose a card in your hand. It gains [gold]Retain[/gold]. If it is still in your hand at the end of your turn, it costs [blue]1[/blue] less energy next turn.",
+  "MYSTS2MOD-STRATEGIC_RESERVE_CARD.selectionScreenPrompt": "Choose a card to retain",
+  "MYSTS2MOD-CORE_EXTRACTION_CARD.title": "Core Extraction",
+  "MYSTS2MOD-CORE_EXTRACTION_CARD.description": "[gold]Exhaust[/gold].\nChoose an Attack in your hand and [gold]Exhaust[/gold] it. Gain [gold]Block[/gold] equal to its unbuffed base damage. At the start of your next turn, add a random Attack of the same rarity to your hand. It costs [blue]0[/blue] this turn.",
+  "MYSTS2MOD-CORE_EXTRACTION_CARD.selectionScreenPrompt": "Choose an Attack to exhaust",
+  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.title": "Bottleneck Breakthrough",
+  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.description": "Gain [blue]{Amount}[/blue] [gold]Bottleneck Breakthrough[/gold]."
 }

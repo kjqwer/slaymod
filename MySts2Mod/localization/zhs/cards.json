@@ -24,5 +24,16 @@
   "MYSTS2MOD-U_WARP_CARD.description": "选择并丢弃手牌中的任意数量卡牌。每丢弃一张，抽[blue]1[/blue]张牌。本回合内，以此法抽到的牌耗能减少[blue]1[/blue]点。",
   "MYSTS2MOD-U_WARP_CARD.selectionScreenPrompt": "选择要丢弃的牌",
   "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.title": "星际直连",
-  "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.description": "获得[blue]1[/blue]层[gold]星际直连[/gold]（每打出0费牌时获得格挡，每打出第三张额外获得能量）。"
+  "MYSTS2MOD-ASTRAL_DIRECT_LINK_CARD.description": "获得[blue]1[/blue]层[gold]星际直连[/gold]（每打出0费牌时获得格挡，每打出第三张额外获得能量）。",
+  "MYSTS2MOD-EMERGENCY_EXTRACTION_CARD.title": "应急提取",
+  "MYSTS2MOD-EMERGENCY_EXTRACTION_CARD.description": "从你的[gold]弃牌堆[/gold]中选择一张牌放入手中，其在本回合耗能变为[blue]0[/blue]。在你的回合结束时，如果你没有打出这张牌，受到[blue]5[/blue]点伤害。",
+  "MYSTS2MOD-EMERGENCY_EXTRACTION_CARD.selectionScreenPrompt": "选择要放入手中的牌",
+  "MYSTS2MOD-STRATEGIC_RESERVE_CARD.title": "战备封存",
+  "MYSTS2MOD-STRATEGIC_RESERVE_CARD.description": "选择手牌中的一张牌，使其获得[gold]保留[/gold]。如果该牌在你的回合结束时仍在手牌中，它在下回合的耗能减少[blue]1[/blue]点。",
+  "MYSTS2MOD-STRATEGIC_RESERVE_CARD.selectionScreenPrompt": "选择要保留的牌",
+  "MYSTS2MOD-CORE_EXTRACTION_CARD.title": "核心剥离",
+  "MYSTS2MOD-CORE_EXTRACTION_CARD.description": "选择手牌中的一张攻击牌，将其[gold]消耗[/gold]。获得等于其未受力量加成时面板伤害数值的[gold]格挡[/gold]。下回合开始时，随机将一张与被消耗卡牌同稀有度的攻击牌加入手牌，其耗能变为[blue]0[/blue]。",
+  "MYSTS2MOD-CORE_EXTRACTION_CARD.selectionScreenPrompt": "选择要消耗的攻击牌",
+  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.title": "瓶颈突破",
+  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.description": "获得[blue]{Amount}[/blue]层[gold]瓶颈突破[/gold]（每当你被施加负面状态或被塞入状态/诅咒牌时，获得能量并抽牌）。"
 }
