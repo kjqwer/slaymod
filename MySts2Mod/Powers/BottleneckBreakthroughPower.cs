@@ -41,16 +41,22 @@ public class BottleneckBreakthroughPower : CustomPowerModel
         }
     }
 
-    private async Task TryTrigger(PlayerChoiceContext context)
+    private async Task TryTrigger(PlayerChoiceContext? context)
     {
         if (DynamicVars[_triggersLeftKey].IntValue > 0)
         {
             Flash();
             DynamicVars[_triggersLeftKey].BaseValue--;
             InvokeDisplayAmountChanged();
-            
+
             await PlayerCmd.GainEnergy(1, Owner.Player);
-            await CardPileCmd.Draw(context, 1, Owner.Player);
+
+            // Hook.AfterCardDrawn 内部无论如何都会调用 choiceContext.PushModel()，
+            // 传入 null 必然导致 NullReferenceException。
+            // BlockingPlayerChoiceContext 是游戏内置的"无交互"上下文，
+            // SignalPlayerChoiceBegun/Ended 均为 no-op，适合自动触发效果使用。
+            var drawContext = context ?? new BlockingPlayerChoiceContext();
+            await CardPileCmd.Draw(drawContext, 1, Owner.Player);
         }
     }
 
@@ -59,7 +65,6 @@ public class BottleneckBreakthroughPower : CustomPowerModel
     {
         if (card.Owner == Owner.Player && (card.Type == CardType.Status || card.Type == CardType.Curse))
         {
-            // We use null context, since Draw does not require choice for deck shuffle
             await TryTrigger(null);
         }
     }
@@ -72,7 +77,7 @@ public class BottleneckBreakthroughPower : CustomPowerModel
             DynamicVars[_triggersLeftKey].BaseValue += amount;
             InvokeDisplayAmountChanged();
         }
-        
+
         // Trigger when debuff applied to me
         if (power.Owner == Owner && power.Type == PowerType.Debuff && amount > 0)
         {

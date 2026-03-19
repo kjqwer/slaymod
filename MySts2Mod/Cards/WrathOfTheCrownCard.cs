@@ -23,19 +23,20 @@ public class WrathOfTheCrownCard : CustomCardModel
     {
         new CalculationBaseVar(10m),
         new ExtraDamageVar(1m),
+        new IntVar("Multiplier", 50m),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((CardModel card, Creature? _) =>
         {
             var blade = card.Owner.PlayerCombatState?.Hand.Cards.FirstOrDefault(c => c.Id == ModelDb.Card<SovereignBlade>().Id);
             if (blade != null)
             {
-                return Math.Floor(blade.DynamicVars.Damage.PreviewValue * 0.5m);
+                return Math.Floor(blade.DynamicVars.Damage.PreviewValue * (card.DynamicVars["Multiplier"].PreviewValue / 100m));
             }
             return 0m;
         }),
-        new ForgeVar(2)
+        new ForgeVar(5)
     };
 
-    public WrathOfTheCrownCard() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy) { }
+    public WrathOfTheCrownCard() : base(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy) { }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -52,7 +53,6 @@ public class WrathOfTheCrownCard : CustomCardModel
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(4m);
-        DynamicVars.Forge.UpgradeValueBy(1m);
+        DynamicVars["Multiplier"].UpgradeValueBy(25m);
     }
 }

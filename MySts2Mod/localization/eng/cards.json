@@ -10,7 +10,7 @@
   "MYSTS2MOD-ASTRAL_OVERDRAFT_CARD.title": "Astral Overdraft",
   "MYSTS2MOD-ASTRAL_OVERDRAFT_CARD.description": "Gain [blue]{Stars}[/blue] {singleStarIcon}. At the start of your next turn, lose [blue]{EnergyDownNextTurnPower}[/blue] [gold]Energy[/gold].",
   "MYSTS2MOD-WRATH_OF_THE_CROWN_CARD.title": "Wrath of the Crown",
-  "MYSTS2MOD-WRATH_OF_THE_CROWN_CARD.description": "Deal [blue]{CalculatedDamage}[/blue] damage. If you have [gold]Sovereign Blade[/gold] in your hand, deal additional damage equal to [blue]50%[/blue] of its damage, without exhausting it.\n[gold]Forge[/gold] [blue]{Forge}[/blue].",
+  "MYSTS2MOD-WRATH_OF_THE_CROWN_CARD.description": "Deal [blue]{CalculatedDamage}[/blue] damage. If you have [gold]Sovereign Blade[/gold] in your hand, deal additional damage equal to [blue]{Multiplier}%[/blue] of its damage, without exhausting it.\n[gold]Forge[/gold] [blue]{Forge}[/blue].",
   "MYSTS2MOD-RUTHLESS_CONSCRIPTION_CARD.title": "Ruthless Conscription",
   "MYSTS2MOD-RUTHLESS_CONSCRIPTION_CARD.description": "[gold]Exhaust[/gold] a card in your hand, then add a [gold]Minion Strike[/gold] or [gold]Minion Sacrifice[/gold] to your hand. Draw [blue]1[/blue] card.",
   "MYSTS2MOD-RUTHLESS_CONSCRIPTION_CARD.selectionScreenPrompt": "Choose a card to exhaust",

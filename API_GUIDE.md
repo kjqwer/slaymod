@@ -983,6 +983,57 @@ public static class SomeCardCostPatch
 - **不要用** `EnergyCost.SetThisTurn()` / `SetThisCombat()` — 这些是临时修改，不是永久改基础值
 - **不要用** `EnergyCost.UpgradeBy()` — 内部也调用 `SetCustomBaseCost`，同样受 `AssertMutable` 限制
 
+### 12.10 BaseLib 版本必须固定，禁止使用 `Version="*"`
+
+csproj 中 BaseLib 的 PackageReference **必须**固定到已知可用的版本号，例如 `0.1.6`。
+
+**问题**：如果使用 `Version="*"`（NuGet 浮动版本），每次 `dotnet build` / `dotnet restore` 会自动拉取最新版 BaseLib。当 BaseLib 发布了不兼容的新版本（如 0.1.7 中 `PrefixIdPatch` 的 Harmony patch 失效），所有 mod 卡片/遗物/能力的 ID 前缀（如 `MYSTS2MOD-`）会丢失，导致本地化键找不到、图鉴崩溃等问题。
+
+**更隐蔽的坑**：csproj 的 `CopyToModsFolderOnBuild` target 会在每次 build 时把 NuGet 缓存中的 BaseLib.dll / BaseLib.pck / BaseLib.json 复制到游戏 mods 目录。这意味着即使你回退了自己的代码，只要 NuGet 缓存里已经是新版 BaseLib，重新 build 也会把坏版本部署到游戏中。
+
+**正确写法**：
+```xml
+<!-- PackageReference 固定版本 -->
+<PackageReference Include="Alchyr.Sts2.BaseLib" Version="0.1.6" PrivateAssets="All" />
+
+<!-- BaseLibFiles glob 也要固定版本路径 -->
+<BaseLibFiles Include="$(NuGetPackageRoot)/alchyr.sts2.baselib/0.1.6/lib/**/BaseLib.dll;
+                        $(NuGetPackageRoot)/alchyr.sts2.baselib/0.1.6/Content/BaseLib.pck;
+                        $(NuGetPackageRoot)/alchyr.sts2.baselib/0.1.6/Content/BaseLib.json;"/>
+```
+
+**错误写法**：
+```xml
+<!-- 危险：浮动版本 -->
+<PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" PrivateAssets="All" />
+
+<!-- 危险：通配符路径会匹配到任意版本 -->
+<BaseLibFiles Include="$(NuGetPackageRoot)/alchyr.sts2.baselib/**/lib/**/BaseLib.dll;..."/>
+```
+
+**排查方法**：如果所有 mod 内容突然全部失效（本地化找不到、图鉴崩溃），检查游戏 mods/BaseLib/BaseLib.dll 的文件大小或 MD5 是否与已知可用版本一致。
+
+### 12.11 `CardFactory.GetForCombat` 会过滤掉 Basic/Ancient/Event 稀有度的卡牌
+
+`CardFactory.GetForCombat(player, cards, count, rng)` 内部调用 `FilterForCombat()`，会移除以下稀有度的卡牌：
+- `CardRarity.Basic`（基础卡，如打击、防御）
+- `CardRarity.Ancient`（远古卡）
+- `CardRarity.Event`（事件卡）
+
+如果传入的卡牌列表在过滤后为空，`rng.NextItem()` 会返回 `null`，后续 `CreateCard(null)` 导致 `NullReferenceException`。
+
+**典型场景**：能力/遗物效果"下回合生成一张与消耗卡同稀有度的随机攻击牌"，如果玩家消耗了基础攻击牌（如打击），用 `CardRarity.Basic` 去查询角色卡池，过滤后为空列表 → 崩溃。
+
+**正确做法**：调用 `GetForCombat` 前检查稀有度是否会被过滤，如果是则回退到 Common 稀有度：
+```csharp
+// Basic/Ancient/Event 会被 FilterForCombat 移除，回退到 Common
+var safeRarity = rarity;
+if (rarity == CardRarity.Basic || rarity == CardRarity.Ancient || rarity == CardRarity.Event)
+{
+    safeRarity = CardRarity.Common;
+}
+```
+
 ---
 
 ## 13. 角色一览

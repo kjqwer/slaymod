@@ -38,23 +38,33 @@ public class CoreExtractionPower : CustomPowerModel
         if (side != Owner.Side) return;
 
         Data data = GetInternalData<Data>();
-        
+
         Flash();
-        
+
+        // CardFactory.GetForCombat 内部的 FilterForCombat 会移除 Basic/Ancient/Event 稀有度的卡牌。
+        // 若目标稀有度会被过滤（如消耗了基础打击牌），则回退到 Common 以避免空列表导致 NullReferenceException。
+        var safeRarity = data.targetRarity;
+        if (safeRarity == CardRarity.Basic || safeRarity == CardRarity.Ancient || safeRarity == CardRarity.Event)
+        {
+            safeRarity = CardRarity.Common;
+        }
+
         var options = Owner.Player.Character.CardPool.GetUnlockedCards(Owner.Player.UnlockState, Owner.Player.RunState.CardMultiplayerConstraint)
-            .Where(c => c.Type == CardType.Attack && c.Rarity == data.targetRarity);
+            .Where(c => c.Type == CardType.Attack && c.Rarity == safeRarity);
 
         if (!options.Any())
         {
-            // Fallback if no matching rarity (e.g. Basic/Special)
+            // 二次回退：同样排除会被 FilterForCombat 过滤掉的稀有度
             options = Owner.Player.Character.CardPool.GetUnlockedCards(Owner.Player.UnlockState, Owner.Player.RunState.CardMultiplayerConstraint)
-                .Where(c => c.Type == CardType.Attack);
+                .Where(c => c.Type == CardType.Attack
+                         && c.Rarity != CardRarity.Basic
+                         && c.Rarity != CardRarity.Ancient
+                         && c.Rarity != CardRarity.Event);
         }
 
         var forCombat = CardFactory.GetForCombat(Owner.Player, options, 1, Owner.Player.RunState.Rng.CombatCardGeneration);
-        
+
         foreach (var card in forCombat)
-        
         {
             card.EnergyCost.SetThisTurn(0);
             await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, addedByPlayer: true);
