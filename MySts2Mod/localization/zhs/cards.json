@@ -53,5 +53,7 @@
   "MYSTS2MOD-CRUDE_BLACKSMITHING_CARD.description": "造成[blue]{Damage}[/blue]点伤害。将一张[gold]碎屑[/gold]添加到你的[gold]弃牌堆[/gold]中。同时[gold]消耗[/gold]手牌中的所有[gold]碎屑[/gold]，每消耗一张，[gold]铸造[/gold][blue]{Forge}[/blue]。",
   "MYSTS2MOD-SWEPT_UNDER_THE_RUG_CARD.title": "掩耳盗铃",
   "MYSTS2MOD-SWEPT_UNDER_THE_RUG_CARD.description": "抽[blue]{Cards}[/blue]张牌。然后选择手牌中的[blue]1[/blue]张牌放到[gold]抽牌堆[/gold]顶。如果放到抽牌堆顶的是一张[gold]碎屑[/gold]，获得[blue]{Energy}[/blue]点[gold]能量[/gold]。",
-  "MYSTS2MOD-SWEPT_UNDER_THE_RUG_CARD.selectionScreenPrompt": "选择一张牌放到抽牌堆顶"
+  "MYSTS2MOD-SWEPT_UNDER_THE_RUG_CARD.selectionScreenPrompt": "选择一张牌放到抽牌堆顶",
+  "MYSTS2MOD-OVERLOAD_DUMPING_CARD.title": "超载倾倒",
+  "MYSTS2MOD-OVERLOAD_DUMPING_CARD.description": "对所有敌人造成[blue]{Damage}[/blue]点伤害。你每有[blue]1[/blue]点{singleStarIcon}，将[blue]1[/blue]张[gold]碎屑[/gold]加入手牌，并额外对所有敌人造成[blue]{ExtraDamage}[/blue]点伤害。"
 }

@@ -53,5 +53,7 @@
   "MYSTS2MOD-CRUDE_BLACKSMITHING_CARD.description": "Deal [blue]{Damage}[/blue] damage. Add a [gold]Debris[/gold] to your [gold]Discard Pile[/gold]. Then [gold]Exhaust[/gold] all [gold]Debris[/gold] in your hand. For each card exhausted, [gold]Forge[/gold] [blue]{Forge}[/blue].",
   "MYSTS2MOD-SWEPT_UNDER_THE_RUG_CARD.title": "Swept Under the Rug",
   "MYSTS2MOD-SWEPT_UNDER_THE_RUG_CARD.description": "Draw [blue]{Cards}[/blue] cards. Then choose [blue]1[/blue] card in your hand and place it on top of your [gold]Draw Pile[/gold]. If that card is [gold]Debris[/gold], gain [blue]{Energy}[/blue] [gold]Energy[/gold].",
-  "MYSTS2MOD-SWEPT_UNDER_THE_RUG_CARD.selectionScreenPrompt": "Choose a card to place on top"
+  "MYSTS2MOD-SWEPT_UNDER_THE_RUG_CARD.selectionScreenPrompt": "Choose a card to place on top",
+  "MYSTS2MOD-OVERLOAD_DUMPING_CARD.title": "Overload Dumping",
+  "MYSTS2MOD-OVERLOAD_DUMPING_CARD.description": "Deal [blue]{Damage}[/blue] damage to all enemies. For each [blue]1[/blue] {singleStarIcon} you have, add [blue]1[/blue] [gold]Debris[/gold] to your hand and deal an additional [blue]{ExtraDamage}[/blue] damage to all enemies."
 }
