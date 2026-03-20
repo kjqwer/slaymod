@@ -51,3 +51,22 @@ public static class ToricToughnessCostPatch
         EnergyCostHelper.SetBaseCost(__instance.EnergyCost, 1);
     }
 }
+
+[HarmonyPatch(typeof(Relax), MethodType.Constructor)]
+public static class RelaxCostAndBaseBlockPatch
+{
+    public static void Postfix(Relax __instance)
+    {
+        EnergyCostHelper.SetBaseCost(__instance.EnergyCost, 2);
+        __instance.DynamicVars["Block"].BaseValue = 20m;
+    }
+}
+
+[HarmonyPatch(typeof(Relax), "OnUpgrade")]
+public static class RelaxUpgradeBlockPatch
+{
+    public static void Postfix(Relax __instance)
+    {
+        __instance.DynamicVars["Block"].BaseValue = 30m;
+    }
+}
