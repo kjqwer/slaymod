@@ -42,9 +42,15 @@ public class RoyalCrucibleCard() : CustomCardModel(
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        var handCardsState = Owner.PlayerCombatState?.Hand?.Cards;
+        if (handCardsState == null)
+        {
+            return;
+        }
+
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
 
-        List<CardModel> handCards = Owner.PlayerCombatState.Hand.Cards.ToList();
+        List<CardModel> handCards = handCardsState.ToList();
         int exhaustedCount = 0;
 
         foreach (CardModel card in handCards)

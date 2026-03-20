@@ -31,6 +31,11 @@ public class GreshamsLawCard : CustomCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        var combatState = Owner.Creature.CombatState;
+        if (combatState == null)
+        {
+            return;
+        }
 
         await DamageCmd.Attack(DynamicVars.CalculatedDamage)
             .FromCard(this)
@@ -38,7 +43,7 @@ public class GreshamsLawCard : CustomCardModel
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
 
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Debris>(Owner), PileType.Discard, addedByPlayer: true));
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<Debris>(Owner), PileType.Discard, addedByPlayer: true));
         await Cmd.Wait(0.5f);
     }
 

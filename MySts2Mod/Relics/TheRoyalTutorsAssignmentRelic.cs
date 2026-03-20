@@ -56,9 +56,15 @@ public class TheRoyalTutorsAssignmentRelic : CustomRelicModel
 
     public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
+        var playerCombatState = Owner.PlayerCombatState;
+        if (playerCombatState == null)
+        {
+            return;
+        }
+
         if (side == Owner.Creature.Side)
         {
-            if (Owner.PlayerCombatState.Energy > 0 || Owner.PlayerCombatState.Stars > 0)
+            if (playerCombatState.Energy > 0 || playerCombatState.Stars > 0)
             {
                 Flash();
                 await PowerCmd.Apply(new WeakPower(), Owner.Creature, 1, Owner.Creature, null);

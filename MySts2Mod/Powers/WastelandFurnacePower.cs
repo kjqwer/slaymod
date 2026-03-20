@@ -30,6 +30,12 @@ public class WastelandFurnacePower : CustomPowerModel
 
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
     {
+        var player = Owner.Player;
+        if (player == null)
+        {
+            return;
+        }
+
         if (card.Owner.Creature != Owner)
         {
             return;
@@ -41,9 +47,9 @@ public class WastelandFurnacePower : CustomPowerModel
         }
 
         Flash();
-        await ForgeCmd.Forge(Amount, Owner.Player, this);
-        await PlayerCmd.GainStars(Amount, Owner.Player);
-        await PlayerCmd.GainEnergy((int)Amount, Owner.Player);
-        await CardPileCmd.Draw(choiceContext, Amount, Owner.Player, fromHandDraw: false);
+        await ForgeCmd.Forge(Amount, player, this);
+        await PlayerCmd.GainStars(Amount, player);
+        await PlayerCmd.GainEnergy((int)Amount, player);
+        await CardPileCmd.Draw(choiceContext, Amount, player, fromHandDraw: false);
     }
 }

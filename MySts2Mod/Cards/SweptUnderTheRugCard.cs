@@ -27,9 +27,16 @@ public class SweptUnderTheRugCard : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        var handCards = Owner.PlayerCombatState?.Hand?.Cards;
+        if (handCards == null)
+        {
+            return;
+        }
+
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner, fromHandDraw: false);
 
-        if (Owner.PlayerCombatState.Hand.Cards.Count == 0)
+        handCards = Owner.PlayerCombatState?.Hand?.Cards;
+        if (handCards == null || handCards.Count == 0)
         {
             return;
         }

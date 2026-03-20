@@ -18,7 +18,7 @@ public class EmergencyExtractionPower : CustomPowerModel
     private class Data
     {
         public bool cardPlayed;
-        public CardModel trackedCard;
+        public CardModel? trackedCard;
     }
 
     public override PowerType Type => PowerType.Debuff;

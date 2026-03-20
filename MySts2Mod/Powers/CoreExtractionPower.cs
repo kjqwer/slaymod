@@ -36,6 +36,8 @@ public class CoreExtractionPower : CustomPowerModel
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (side != Owner.Side) return;
+        var player = Owner.Player;
+        if (player == null) return;
 
         Data data = GetInternalData<Data>();
 
@@ -49,20 +51,20 @@ public class CoreExtractionPower : CustomPowerModel
             safeRarity = CardRarity.Common;
         }
 
-        var options = Owner.Player.Character.CardPool.GetUnlockedCards(Owner.Player.UnlockState, Owner.Player.RunState.CardMultiplayerConstraint)
+        var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
             .Where(c => c.Type == CardType.Attack && c.Rarity == safeRarity);
 
         if (!options.Any())
         {
             // 二次回退：同样排除会被 FilterForCombat 过滤掉的稀有度
-            options = Owner.Player.Character.CardPool.GetUnlockedCards(Owner.Player.UnlockState, Owner.Player.RunState.CardMultiplayerConstraint)
+            options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
                 .Where(c => c.Type == CardType.Attack
                          && c.Rarity != CardRarity.Basic
                          && c.Rarity != CardRarity.Ancient
                          && c.Rarity != CardRarity.Event);
         }
 
-        var forCombat = CardFactory.GetForCombat(Owner.Player, options, 1, Owner.Player.RunState.Rng.CombatCardGeneration);
+        var forCombat = CardFactory.GetForCombat(player, options, 1, player.RunState.Rng.CombatCardGeneration);
 
         foreach (var card in forCombat)
         {

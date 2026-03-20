@@ -28,6 +28,12 @@ public class RuthlessConscriptionCard : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        var combatState = Owner.Creature.CombatState;
+        if (combatState == null)
+        {
+            return;
+        }
+
         // 1. Exhaust a card
         List<CardModel> exhaustList = (await CardSelectCmd.FromHand(choiceContext, Owner, new CardSelectorPrefs(SelectionScreenPrompt, 1, 1), null, this)).ToList();
         if (exhaustList.Count > 0)
@@ -38,8 +44,8 @@ public class RuthlessConscriptionCard : CustomCardModel
         // 2. Choose MinionStrike or MinionSacrifice
         List<CardModel> choices = new List<CardModel>
         {
-            CombatState.CreateCard<MinionStrike>(Owner),
-            CombatState.CreateCard<MinionSacrifice>(Owner)
+            combatState.CreateCard<MinionStrike>(Owner),
+            combatState.CreateCard<MinionSacrifice>(Owner)
         };
         
         var chosen = await CardSelectCmd.FromChooseACardScreen(choiceContext, choices, Owner, canSkip: false);

@@ -14,7 +14,7 @@ public class StrategicReservePower : CustomPowerModel
 {
     private class Data
     {
-        public CardModel trackedCard;
+        public CardModel? trackedCard;
     }
 
     public override PowerType Type => PowerType.Buff;
@@ -35,17 +35,17 @@ public class StrategicReservePower : CustomPowerModel
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (side != Owner.Side) return;
+        var playerCombatState = Owner.Player?.PlayerCombatState;
+        if (playerCombatState == null) return;
 
         Data data = GetInternalData<Data>();
         
-        // If the card is in hand, reduce its cost
-        if (data.trackedCard != null && data.trackedCard.Pile == Owner.Player.PlayerCombatState.Hand)
+        if (data.trackedCard != null && data.trackedCard.Pile == playerCombatState.Hand)
         {
             Flash();
             data.trackedCard.EnergyCost.AddThisTurnOrUntilPlayed(-(int)Amount, reduceOnly: true);
         }
 
-        // We only apply this once at the start of the next turn
         await PowerCmd.Remove(this);
     }
 }

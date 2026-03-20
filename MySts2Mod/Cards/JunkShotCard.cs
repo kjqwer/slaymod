@@ -47,6 +47,11 @@ public class JunkShotCard : CustomCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        var combatState = Owner.Creature.CombatState;
+        if (combatState == null)
+        {
+            return;
+        }
 
         int count = CountDebrisAndStatus(this);
         if (count > 0)
@@ -59,7 +64,7 @@ public class JunkShotCard : CustomCardModel
                 .Execute(choiceContext);
         }
 
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Debris>(Owner), PileType.Discard, addedByPlayer: true));
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<Debris>(Owner), PileType.Discard, addedByPlayer: true));
         await Cmd.Wait(0.5f);
 
         if (!Keywords.Contains(CardKeyword.Exhaust) && !ExhaustOnNextPlay)

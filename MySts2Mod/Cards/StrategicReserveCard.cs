@@ -20,7 +20,13 @@ public class StrategicReserveCard : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var selectableCards = Owner.PlayerCombatState.Hand.Cards.Where(card => card != this).ToList();
+        var handCards = Owner.PlayerCombatState?.Hand?.Cards;
+        if (handCards == null)
+        {
+            return;
+        }
+
+        var selectableCards = handCards.Where(card => card != this).ToList();
         if (selectableCards.Count > 0)
         {
             var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1)
@@ -34,9 +40,11 @@ public class StrategicReserveCard : CustomCardModel
                 var card = selectedList[0];
                 card.GiveSingleTurnRetain();
 
-                // Apply a power to reduce the cost of this specific card next turn
                 var power = await PowerCmd.Apply<MySts2Mod.Powers.StrategicReservePower>(Owner.Creature, IsUpgraded ? 2 : 1, Owner.Creature, this);
-                power.SetTrackedCard(card);
+                if (power != null)
+                {
+                    power.SetTrackedCard(card);
+                }
             }
         }
     }

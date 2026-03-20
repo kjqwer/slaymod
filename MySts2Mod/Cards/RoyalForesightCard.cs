@@ -27,8 +27,14 @@ public class RoyalForesightCard : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        var playerCombatState = Owner.PlayerCombatState;
+        if (playerCombatState == null)
+        {
+            return;
+        }
+
         int amount = (int)DynamicVars.Cards.BaseValue;
-        var drawPile = Owner.PlayerCombatState.DrawPile;
+        var drawPile = playerCombatState.DrawPile;
         
         if (drawPile.Cards.Count > 0)
         {

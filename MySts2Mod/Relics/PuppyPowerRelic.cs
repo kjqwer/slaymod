@@ -42,21 +42,30 @@ public class PuppyPowerRelic : CustomRelicModel
     }
 
     // 战斗第一回合开始时，手牌中所有卡牌本回合免费（能量+星辰均为0）
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
-        if (Owner?.PlayerCombatState?.Hand?.Cards == null)
+        var owner = Owner;
+        if (owner == null)
         {
-            return;
+            return Task.CompletedTask;
         }
 
-        if (side == Owner.Creature.Side && combatState.RoundNumber == 1)
+        var handCards = owner.PlayerCombatState?.Hand?.Cards;
+        if (handCards == null)
+        {
+            return Task.CompletedTask;
+        }
+
+        if (side == owner.Creature.Side && combatState.RoundNumber == 1)
         {
             Flash();
             MainFile.Logger.Info("Puppy Power activated! Make cards free!");
-            foreach (var card in Owner.PlayerCombatState.Hand.Cards)
+            foreach (var card in handCards)
             {
                 card.SetToFreeThisTurn();
             }
         }
+
+        return Task.CompletedTask;
     }
 }

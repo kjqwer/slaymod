@@ -32,6 +32,12 @@ public class CrudeBlacksmithingCard : CustomCardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        var combatState = Owner.Creature.CombatState;
+        var handCards = Owner.PlayerCombatState?.Hand?.Cards;
+        if (combatState == null || handCards == null)
+        {
+            return;
+        }
 
         await DamageCmd.Attack(DynamicVars["Damage"].BaseValue)
             .FromCard(this)
@@ -39,10 +45,10 @@ public class CrudeBlacksmithingCard : CustomCardModel
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
 
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Debris>(Owner), PileType.Discard, addedByPlayer: true));
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<Debris>(Owner), PileType.Discard, addedByPlayer: true));
         await Cmd.Wait(0.5f);
 
-        var debrisInHand = Owner.PlayerCombatState.Hand.Cards
+        var debrisInHand = handCards
             .Where(c => c.Id == ModelDb.Card<Debris>().Id || c.Id.Entry == "Debris")
             .ToList();
 

@@ -35,7 +35,10 @@ public class EmergencyExtractionCard : CustomCardModel
                 await CardPileCmd.Add(selected, PileType.Hand);
                 
                 var power = await PowerCmd.Apply<MySts2Mod.Powers.EmergencyExtractionPower>(Owner.Creature, IsUpgraded ? 2 : 5, Owner.Creature, this);
-                power.SetTrackedCard(selected);
+                if (power != null)
+                {
+                    power.SetTrackedCard(selected);
+                }
             }
         }
     }

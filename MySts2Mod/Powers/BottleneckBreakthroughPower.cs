@@ -27,36 +27,45 @@ public class BottleneckBreakthroughPower : CustomPowerModel
         new DynamicVar(_triggersLeftKey, 2m)
     };
 
-    public override async Task BeforeApplied(Creature target, decimal amount, Creature? applier, CardModel? cardSource)
+    public override Task BeforeApplied(Creature target, decimal amount, Creature? applier, CardModel? cardSource)
     {
         DynamicVars[_triggersLeftKey].BaseValue = amount;
+        return Task.CompletedTask;
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (side == Owner.Side)
         {
             DynamicVars[_triggersLeftKey].BaseValue = Amount;
             InvokeDisplayAmountChanged();
         }
+
+        return Task.CompletedTask;
     }
 
     private async Task TryTrigger(PlayerChoiceContext? context)
     {
+        var player = Owner.Player;
+        if (player == null)
+        {
+            return;
+        }
+
         if (DynamicVars[_triggersLeftKey].IntValue > 0)
         {
             Flash();
             DynamicVars[_triggersLeftKey].BaseValue--;
             InvokeDisplayAmountChanged();
 
-            await PlayerCmd.GainEnergy(1, Owner.Player);
+            await PlayerCmd.GainEnergy(1, player);
 
             // Hook.AfterCardDrawn 内部无论如何都会调用 choiceContext.PushModel()，
             // 传入 null 必然导致 NullReferenceException。
             // BlockingPlayerChoiceContext 是游戏内置的"无交互"上下文，
             // SignalPlayerChoiceBegun/Ended 均为 no-op，适合自动触发效果使用。
             var drawContext = context ?? new BlockingPlayerChoiceContext();
-            await CardPileCmd.Draw(drawContext, 1, Owner.Player);
+            await CardPileCmd.Draw(drawContext, 1, player);
         }
     }
 

@@ -18,7 +18,13 @@ public class SpectralGatingCard : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var toExhaust = Owner.PlayerCombatState.Hand.Cards.Where(c => c.Type == CardType.Status || c.Type == CardType.Curse).ToList();
+        var handCards = Owner.PlayerCombatState?.Hand?.Cards;
+        if (handCards == null)
+        {
+            return;
+        }
+
+        var toExhaust = handCards.Where(c => c.Type == CardType.Status || c.Type == CardType.Curse).ToList();
         int exhaustedCount = toExhaust.Count;
 
         foreach (var card in toExhaust)

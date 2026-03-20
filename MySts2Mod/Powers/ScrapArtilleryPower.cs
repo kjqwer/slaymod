@@ -20,12 +20,19 @@ public class ScrapArtilleryPower : CustomPowerModel
 
     public override async Task AfterCardDrawnEarly(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
     {
+        var player = Owner.Player;
+        if (player == null)
+        {
+            return;
+        }
+
         if (card.Owner.Creature == Owner && card.Type == CardType.Status)
         {
             var opponents = CombatState.GetOpponentsOf(Owner).Where(c => c.IsHittable).ToList();
             if (opponents.Count == 0) return;
 
-            var target = Owner.Player.RunState.Rng.CombatTargets.NextItem(opponents);
+            var target = player.RunState.Rng.CombatTargets.NextItem(opponents);
+            if (target == null) return;
             Flash();
             await CreatureCmd.Damage(choiceContext, target, Amount, ValueProp.Move, Owner);
         }

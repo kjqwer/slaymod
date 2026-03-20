@@ -22,7 +22,13 @@ public class CoreExtractionCard : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var handAttacks = Owner.PlayerCombatState.Hand.Cards.Where(c => c.Type == CardType.Attack).ToList();
+        var handCards = Owner.PlayerCombatState?.Hand?.Cards;
+        if (handCards == null)
+        {
+            return;
+        }
+
+        var handAttacks = handCards.Where(c => c.Type == CardType.Attack).ToList();
         if (handAttacks.Count > 0)
         {
             var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1)
@@ -48,9 +54,11 @@ public class CoreExtractionCard : CustomCardModel
 
                 await CreatureCmd.GainBlock(Owner.Creature, blockAmount, ValueProp.Unpowered, null);
 
-                // Add power to get a random attack of the same rarity next turn
                 var power = await PowerCmd.Apply<MySts2Mod.Powers.CoreExtractionPower>(Owner.Creature, 1, Owner.Creature, this);
-                power.SetTargetRarity(rarity);
+                if (power != null)
+                {
+                    power.SetTargetRarity(rarity);
+                }
             }
         }
     }

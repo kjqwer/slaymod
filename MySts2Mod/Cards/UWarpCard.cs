@@ -18,7 +18,13 @@ public class UWarpCard : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var handSize = Owner.PlayerCombatState.Hand.Cards.Count;
+        var handCards = Owner.PlayerCombatState?.Hand?.Cards;
+        if (handCards == null)
+        {
+            return;
+        }
+
+        var handSize = handCards.Count;
         var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 0, handSize)
         {
             RequireManualConfirmation = true

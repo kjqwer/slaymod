@@ -29,9 +29,15 @@ public class OverloadDumpingCard : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        var combatState = Owner.Creature.CombatState;
+        if (combatState == null)
+        {
+            return;
+        }
+
         await DamageCmd.Attack(DynamicVars["Damage"].BaseValue)
             .FromCard(this)
-            .TargetingAllOpponents(CombatState)
+            .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
 
@@ -44,7 +50,7 @@ public class OverloadDumpingCard : CustomCardModel
         int debrisAddedToHand = 0;
         for (int i = 0; i < stars; i++)
         {
-            var addResult = await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Debris>(Owner), PileType.Hand, addedByPlayer: true);
+            var addResult = await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<Debris>(Owner), PileType.Hand, addedByPlayer: true);
             if (addResult.success && addResult.cardAdded.Pile?.Type == PileType.Hand)
             {
                 debrisAddedToHand++;
@@ -61,7 +67,7 @@ public class OverloadDumpingCard : CustomCardModel
         await DamageCmd.Attack(DynamicVars["ExtraDamage"].BaseValue)
             .WithHitCount(debrisAddedToHand)
             .FromCard(this)
-            .TargetingAllOpponents(CombatState)
+            .TargetingAllOpponents(combatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
     }
