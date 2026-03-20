@@ -44,5 +44,9 @@
   "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.description": "选择手牌中的一张[gold]碎屑[/gold]或状态牌，将其[gold]消耗[/gold]。获得[blue]{Energy}[/blue]点[gold]能量[/gold]和[blue]{Stars}[/blue]点{singleStarIcon}。{IfUpgraded:show:抽[blue]{Cards}[/blue]张牌。}",
   "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.selectionScreenPrompt": "选择要消耗的碎屑或状态牌",
   "MYSTS2MOD-JUNK_SHOT_CARD.title": "废品射击",
-  "MYSTS2MOD-JUNK_SHOT_CARD.description": "将一张[gold]碎屑[/gold]添加至你的[gold]弃牌堆[/gold]。你牌组中每有一张[gold]碎屑[/gold]或状态牌，造成[blue]{ExtraDamage:diff()}[/blue]点伤害[blue]{Repeat:diff()}[/blue]次。{InCombat:\n（当前总伤害：[blue]{CalculatedDamage:diff()}[/blue]）|}\n之后将此牌放置于你的[gold]抽牌堆[/gold]顶部。"
+  "MYSTS2MOD-JUNK_SHOT_CARD.description": "将一张[gold]碎屑[/gold]添加至你的[gold]弃牌堆[/gold]。你牌组中每有一张[gold]碎屑[/gold]或状态牌，造成[blue]{ExtraDamage:diff()}[/blue]点伤害[blue]{Repeat:diff()}[/blue]次。{InCombat:\n（当前总伤害：[blue]{CalculatedDamage:diff()}[/blue]）|}\n之后将此牌放置于你的[gold]抽牌堆[/gold]顶部。",
+  "MYSTS2MOD-GRESHAMS_LAW_CARD.title": "劣币法则",
+  "MYSTS2MOD-GRESHAMS_LAW_CARD.description": "造成[blue]{CalculatedDamage:diff()}[/blue]点伤害。将一张[gold]碎屑[/gold]添加到你的[gold]弃牌堆[/gold]中。你手牌中每有一张[gold]碎屑[/gold]或状态牌，此牌额外造成[blue]{ExtraDamage:diff()}[/blue]点伤害。",
+  "MYSTS2MOD-WASTELAND_FURNACE_CARD.title": "废土熔炉",
+  "MYSTS2MOD-WASTELAND_FURNACE_CARD.description": "每当一张[gold]碎屑[/gold]或状态牌被[gold]消耗[/gold]时，[gold]铸造[/gold][blue]1[/blue]，获得[blue]1[/blue]点{singleStarIcon}，获得[blue]1[/blue]点[gold]能量[/gold]，并抽[blue]1[/blue]张牌。"
 }

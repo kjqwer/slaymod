@@ -44,5 +44,9 @@
   "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.description": "Choose a [gold]Debris[/gold] or Status card in your hand and [gold]Exhaust[/gold] it. Gain [blue]{Energy}[/blue] [gold]Energy[/gold] and [blue]{Stars}[/blue] {singleStarIcon}. {IfUpgraded:show:Draw [blue]{Cards}[/blue] card.}",
   "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.selectionScreenPrompt": "Choose a Debris or Status card to exhaust",
   "MYSTS2MOD-JUNK_SHOT_CARD.title": "Junk Shot",
-  "MYSTS2MOD-JUNK_SHOT_CARD.description": "Add a [gold]Debris[/gold] to your [gold]Discard Pile[/gold]. For each [gold]Debris[/gold] or Status card in your deck, deal [blue]{ExtraDamage:diff()}[/blue] damage [blue]{Repeat:diff()}[/blue] times.{InCombat:\n (Current total damage: [blue]{CalculatedDamage:diff()}[/blue])|}\nThen place this card on top of your [gold]Draw Pile[/gold]."
+  "MYSTS2MOD-JUNK_SHOT_CARD.description": "Add a [gold]Debris[/gold] to your [gold]Discard Pile[/gold]. For each [gold]Debris[/gold] or Status card in your deck, deal [blue]{ExtraDamage:diff()}[/blue] damage [blue]{Repeat:diff()}[/blue] times.{InCombat:\n (Current total damage: [blue]{CalculatedDamage:diff()}[/blue])|}\nThen place this card on top of your [gold]Draw Pile[/gold].",
+  "MYSTS2MOD-GRESHAMS_LAW_CARD.title": "Gresham's Law",
+  "MYSTS2MOD-GRESHAMS_LAW_CARD.description": "Deal [blue]{CalculatedDamage:diff()}[/blue] damage. Add a [gold]Debris[/gold] to your [gold]Discard Pile[/gold]. For each [gold]Debris[/gold] or Status card in your hand, this card deals [blue]{ExtraDamage:diff()}[/blue] additional damage.",
+  "MYSTS2MOD-WASTELAND_FURNACE_CARD.title": "Wasteland Furnace",
+  "MYSTS2MOD-WASTELAND_FURNACE_CARD.description": "Whenever a [gold]Debris[/gold] or Status card is [gold]Exhausted[/gold], [gold]Forge[/gold] [blue]1[/blue], gain [blue]1[/blue] {singleStarIcon}, gain [blue]1[/blue] [gold]Energy[/gold], and draw [blue]1[/blue] card."
 }

@@ -14,5 +14,8 @@
   "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.title": "下回合能量减少",
   "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.description": "在下回合开始时，失去[blue]{Amount}[/blue]点[gold]能量[/gold]。",
   "MYSTS2MOD-SCRAP_ARTILLERY_POWER.title": "废料重炮",
-  "MYSTS2MOD-SCRAP_ARTILLERY_POWER.description": "每当你抽到一张[gold]碎屑[/gold]或状态牌时，对随机一名敌人造成[blue]{Amount}[/blue]点伤害。"
+  "MYSTS2MOD-SCRAP_ARTILLERY_POWER.description": "每当你抽到一张[gold]碎屑[/gold]或状态牌时，对随机一名敌人造成[blue]{Amount}[/blue]点伤害。",
+  "MYSTS2MOD-WASTELAND_FURNACE_POWER.title": "废土熔炉",
+  "MYSTS2MOD-WASTELAND_FURNACE_POWER.description": "每当一张[gold]碎屑[/gold]或状态牌被[gold]消耗[/gold]时，[gold]铸造[/gold][blue]1[/blue]，获得[blue]1[/blue]点{singleStarIcon}，获得[blue]1[/blue]点[gold]能量[/gold]，并抽[blue]1[/blue]张牌。",
+  "MYSTS2MOD-WASTELAND_FURNACE_POWER.smartDescription": "每当一张[gold]碎屑[/gold]或状态牌被[gold]消耗[/gold]时，[gold]铸造[/gold][blue]{Amount}[/blue]，获得[blue]{Amount}[/blue]点{singleStarIcon}，获得[blue]{Amount}[/blue]点[gold]能量[/gold]，并抽[blue]{Amount}[/blue]张牌。"
 }

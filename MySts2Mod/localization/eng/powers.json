@@ -14,5 +14,8 @@
   "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.title": "Energy Down Next Turn",
   "MYSTS2MOD-ENERGY_DOWN_NEXT_TURN_POWER.description": "At the start of your next turn, lose [blue]{Amount}[/blue] [gold]Energy[/gold].",
   "MYSTS2MOD-SCRAP_ARTILLERY_POWER.title": "Scrap Artillery",
-  "MYSTS2MOD-SCRAP_ARTILLERY_POWER.description": "Whenever you draw a [gold]Debris[/gold] or Status card, deal [blue]{Amount}[/blue] damage to a random enemy."
+  "MYSTS2MOD-SCRAP_ARTILLERY_POWER.description": "Whenever you draw a [gold]Debris[/gold] or Status card, deal [blue]{Amount}[/blue] damage to a random enemy.",
+  "MYSTS2MOD-WASTELAND_FURNACE_POWER.title": "Wasteland Furnace",
+  "MYSTS2MOD-WASTELAND_FURNACE_POWER.description": "Whenever a [gold]Debris[/gold] or Status card is [gold]Exhausted[/gold], [gold]Forge[/gold] [blue]1[/blue], gain [blue]1[/blue] {singleStarIcon}, gain [blue]1[/blue] [gold]Energy[/gold], and draw [blue]1[/blue] card.",
+  "MYSTS2MOD-WASTELAND_FURNACE_POWER.smartDescription": "Whenever a [gold]Debris[/gold] or Status card is [gold]Exhausted[/gold], [gold]Forge[/gold] [blue]{Amount}[/blue], gain [blue]{Amount}[/blue] {singleStarIcon}, gain [blue]{Amount}[/blue] [gold]Energy[/gold], and draw [blue]{Amount}[/blue] card(s)."
 }
