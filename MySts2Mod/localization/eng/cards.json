@@ -35,5 +35,14 @@
   "MYSTS2MOD-CORE_EXTRACTION_CARD.description": "[gold]Exhaust[/gold].\nChoose an Attack in your hand and [gold]Exhaust[/gold] it. Gain [gold]Block[/gold] equal to its unbuffed base damage. At the start of your next turn, add a random Attack of the same rarity to your hand. It costs [blue]0[/blue] this turn.",
   "MYSTS2MOD-CORE_EXTRACTION_CARD.selectionScreenPrompt": "Choose an Attack to exhaust",
   "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.title": "Bottleneck Breakthrough",
-  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.description": "Gain [blue]{Amount}[/blue] [gold]Bottleneck Breakthrough[/gold]."
+  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.description": "Gain [blue]{Amount}[/blue] [gold]Bottleneck Breakthrough[/gold].",
+  "MYSTS2MOD-SCRAP_ARTILLERY_CARD.title": "Scrap Artillery",
+  "MYSTS2MOD-SCRAP_ARTILLERY_CARD.description": "Whenever you draw a [gold]Debris[/gold] or Status card, deal [blue]{Damage}[/blue] damage to a random enemy.",
+  "MYSTS2MOD-DEFECTIVE_BULWARK_CARD.title": "Defective Bulwark",
+  "MYSTS2MOD-DEFECTIVE_BULWARK_CARD.description": "[gold]Exhaust[/gold] all [gold]Debris[/gold] and Status cards in your hand. For each card exhausted, gain [blue]{Block}[/blue] [gold]Block[/gold] and draw [blue]1[/blue] card.",
+  "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.title": "Ruthless Extortion",
+  "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.description": "Choose a [gold]Debris[/gold] or Status card in your hand and [gold]Exhaust[/gold] it. Gain [blue]{Energy}[/blue] [gold]Energy[/gold] and [blue]{Stars}[/blue] {singleStarIcon}. {IfUpgraded:show:Draw [blue]{Cards}[/blue] card.}",
+  "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.selectionScreenPrompt": "Choose a Debris or Status card to exhaust",
+  "MYSTS2MOD-JUNK_SHOT_CARD.title": "Junk Shot",
+  "MYSTS2MOD-JUNK_SHOT_CARD.description": "Add a [gold]Debris[/gold] to your [gold]Discard Pile[/gold]. For each [gold]Debris[/gold] or Status card in your deck, deal [blue]{ExtraDamage:diff()}[/blue] damage [blue]{Repeat:diff()}[/blue] times.{InCombat:\n (Current total damage: [blue]{CalculatedDamage:diff()}[/blue])|}\nThen place this card on top of your [gold]Draw Pile[/gold]."
 }

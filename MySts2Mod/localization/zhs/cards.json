@@ -35,5 +35,14 @@
   "MYSTS2MOD-CORE_EXTRACTION_CARD.description": "选择手牌中的一张攻击牌，将其[gold]消耗[/gold]。获得等于其未受力量加成时面板伤害数值的[gold]格挡[/gold]。下回合开始时，随机将一张与被消耗卡牌同稀有度的攻击牌加入手牌，其耗能变为[blue]0[/blue]。",
   "MYSTS2MOD-CORE_EXTRACTION_CARD.selectionScreenPrompt": "选择要消耗的攻击牌",
   "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.title": "瓶颈突破",
-  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.description": "获得[blue]{Amount}[/blue]层[gold]瓶颈突破[/gold]（每当你被施加负面状态或被塞入状态/诅咒牌时，获得能量并抽牌）。"
+  "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.description": "获得[blue]{Amount}[/blue]层[gold]瓶颈突破[/gold]（每当你被施加负面状态或被塞入状态/诅咒牌时，获得能量并抽牌）。",
+  "MYSTS2MOD-SCRAP_ARTILLERY_CARD.title": "废料重炮",
+  "MYSTS2MOD-SCRAP_ARTILLERY_CARD.description": "每当你抽到一张[gold]碎屑[/gold]或状态牌时，对随机一名敌人造成[blue]{Damage}[/blue]点伤害。",
+  "MYSTS2MOD-DEFECTIVE_BULWARK_CARD.title": "残次品壁垒",
+  "MYSTS2MOD-DEFECTIVE_BULWARK_CARD.description": "[gold]消耗[/gold]你手牌中所有的[gold]碎屑[/gold]和状态牌。每消耗一张，获得[blue]{Block}[/blue]点[gold]格挡[/gold]，并抽[blue]1[/blue]张牌。",
+  "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.title": "横征暴敛",
+  "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.description": "选择手牌中的一张[gold]碎屑[/gold]或状态牌，将其[gold]消耗[/gold]。获得[blue]{Energy}[/blue]点[gold]能量[/gold]和[blue]{Stars}[/blue]点{singleStarIcon}。{IfUpgraded:show:抽[blue]{Cards}[/blue]张牌。}",
+  "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.selectionScreenPrompt": "选择要消耗的碎屑或状态牌",
+  "MYSTS2MOD-JUNK_SHOT_CARD.title": "废品射击",
+  "MYSTS2MOD-JUNK_SHOT_CARD.description": "将一张[gold]碎屑[/gold]添加至你的[gold]弃牌堆[/gold]。你牌组中每有一张[gold]碎屑[/gold]或状态牌，造成[blue]{ExtraDamage:diff()}[/blue]点伤害[blue]{Repeat:diff()}[/blue]次。{InCombat:\n（当前总伤害：[blue]{CalculatedDamage:diff()}[/blue]）|}\n之后将此牌放置于你的[gold]抽牌堆[/gold]顶部。"
 }
