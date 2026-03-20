@@ -17,6 +17,8 @@ public static class RegentStartingDeckPatch
         newDeck.Add(ModelDb.Card<JunkShotCard>());
         newDeck.Add(ModelDb.Card<GreshamsLawCard>());
         newDeck.Add(ModelDb.Card<WastelandFurnaceCard>());
+        newDeck.Add(ModelDb.Card<CrudeBlacksmithingCard>());
+        newDeck.Add(ModelDb.Card<SweptUnderTheRugCard>());
         __result = newDeck;
     }
 }

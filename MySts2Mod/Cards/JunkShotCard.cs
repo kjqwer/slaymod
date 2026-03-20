@@ -59,7 +59,8 @@ public class JunkShotCard : CustomCardModel
                 .Execute(choiceContext);
         }
 
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Debris>(Owner), PileType.Discard, addedByPlayer: false);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Debris>(Owner), PileType.Discard, addedByPlayer: true));
+        await Cmd.Wait(0.5f);
 
         if (!Keywords.Contains(CardKeyword.Exhaust) && !ExhaustOnNextPlay)
         {
