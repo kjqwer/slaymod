@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace MySts2Mod.Relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(RegentRelicPool))]
 public class TheRoyalTutorsAssignmentRelic : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
@@ -67,8 +67,8 @@ public class TheRoyalTutorsAssignmentRelic : CustomRelicModel
             if (playerCombatState.Energy > 0 || playerCombatState.Stars > 0)
             {
                 Flash();
-                await PowerCmd.Apply(new WeakPower(), Owner.Creature, 1, Owner.Creature, null);
-                await PowerCmd.Apply(new VulnerablePower(), Owner.Creature, 1, Owner.Creature, null);
+                await PowerCmd.Apply<WeakPower>(Owner.Creature, 1, Owner.Creature, null);
+                await PowerCmd.Apply<VulnerablePower>(Owner.Creature, 1, Owner.Creature, null);
             }
         }
     }

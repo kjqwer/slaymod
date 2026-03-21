@@ -2,6 +2,7 @@
 .vscode/
 .godot/
 bin/
+_buildtmp/
 temp/
 /android/
 .git/
