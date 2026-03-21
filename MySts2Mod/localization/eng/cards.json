@@ -37,7 +37,7 @@
   "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.title": "Bottleneck Breakthrough",
   "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.description": "Gain [blue]{Amount}[/blue] [gold]Bottleneck Breakthrough[/gold].",
   "MYSTS2MOD-SCRAP_ARTILLERY_CARD.title": "Scrap Artillery",
-  "MYSTS2MOD-SCRAP_ARTILLERY_CARD.description": "Whenever you draw a [gold]Debris[/gold] or Status card, deal [blue]{Damage}[/blue] damage to a random enemy.",
+  "MYSTS2MOD-SCRAP_ARTILLERY_CARD.description": "Whenever you draw a [gold]Debris[/gold] or Status card, deal [blue]{Damage}[/blue] damage to all enemies [blue]2[/blue] times.",
   "MYSTS2MOD-DEFECTIVE_BULWARK_CARD.title": "Defective Bulwark",
   "MYSTS2MOD-DEFECTIVE_BULWARK_CARD.description": "[gold]Exhaust[/gold] all [gold]Debris[/gold] and Status cards in your hand. For each card exhausted, gain [blue]{Block}[/blue] [gold]Block[/gold] and draw [blue]1[/blue] card.",
   "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.title": "Ruthless Extortion",

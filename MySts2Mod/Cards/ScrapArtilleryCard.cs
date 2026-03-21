@@ -17,7 +17,7 @@ public class ScrapArtilleryCard : CustomCardModel
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {
-        new DamageVar(5m, ValueProp.Move)
+        new DamageVar(3m, ValueProp.Move)
     };
 
     public ScrapArtilleryCard() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self) { }

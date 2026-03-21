@@ -1,12 +1,10 @@
 using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,21 +18,22 @@ public class ScrapArtilleryPower : CustomPowerModel
 
     public override async Task AfterCardDrawnEarly(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
     {
-        var player = Owner.Player;
-        if (player == null)
-        {
-            return;
-        }
-
         if (card.Owner.Creature == Owner && card.Type == CardType.Status)
         {
-            var opponents = CombatState.GetOpponentsOf(Owner).Where(c => c.IsHittable).ToList();
-            if (opponents.Count == 0) return;
-
-            var target = player.RunState.Rng.CombatTargets.NextItem(opponents);
-            if (target == null) return;
             Flash();
-            await CreatureCmd.Damage(choiceContext, target, Amount, ValueProp.Move, Owner);
+            for (int i = 0; i < 2; i++)
+            {
+                var opponents = CombatState.GetOpponentsOf(Owner).Where(c => c.IsHittable).ToList();
+                if (opponents.Count == 0)
+                {
+                    break;
+                }
+
+                foreach (var target in opponents)
+                {
+                    await CreatureCmd.Damage(choiceContext, target, Amount, ValueProp.Move, Owner);
+                }
+            }
         }
     }
 }

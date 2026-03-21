@@ -37,7 +37,7 @@
   "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.title": "瓶颈突破",
   "MYSTS2MOD-BOTTLENECK_BREAKTHROUGH_CARD.description": "获得[blue]{Amount}[/blue]层[gold]瓶颈突破[/gold]（每当你被施加负面状态或被塞入状态/诅咒牌时，获得能量并抽牌）。",
   "MYSTS2MOD-SCRAP_ARTILLERY_CARD.title": "废料重炮",
-  "MYSTS2MOD-SCRAP_ARTILLERY_CARD.description": "每当你抽到一张[gold]碎屑[/gold]或状态牌时，对随机一名敌人造成[blue]{Damage}[/blue]点伤害。",
+  "MYSTS2MOD-SCRAP_ARTILLERY_CARD.description": "每当你抽到一张[gold]碎屑[/gold]或状态牌时，对所有敌人造成[blue]{Damage}[/blue]点伤害[blue]2[/blue]次。",
   "MYSTS2MOD-DEFECTIVE_BULWARK_CARD.title": "残次品壁垒",
   "MYSTS2MOD-DEFECTIVE_BULWARK_CARD.description": "[gold]消耗[/gold]你手牌中所有的[gold]碎屑[/gold]和状态牌。每消耗一张，获得[blue]{Block}[/blue]点[gold]格挡[/gold]，并抽[blue]1[/blue]张牌。",
   "MYSTS2MOD-RUTHLESS_EXTORTION_CARD.title": "横征暴敛",

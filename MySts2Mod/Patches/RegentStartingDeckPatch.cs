@@ -14,7 +14,9 @@ public static class RegentStartingDeckPatch
     public static void Postfix(ref IEnumerable<CardModel> __result)
     {
         var newDeck = new List<CardModel>(__result);
-        // newDeck.Add(ModelDb.Card<OverloadDumpingCard>());
+        // newDeck.Add(ModelDb.Card<ScrapArtilleryCard>());
+        // newDeck.Add(ModelDb.Card<GreshamsLawCard>());
+
         __result = newDeck;
     }
 }
