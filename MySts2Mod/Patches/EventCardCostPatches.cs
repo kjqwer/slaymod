@@ -16,6 +16,7 @@ internal static class EnergyCostHelper
     }
 }
 
+/*
 [HarmonyPatch(typeof(Squash), MethodType.Constructor)]
 public static class SquashCostPatch
 {
@@ -70,3 +71,4 @@ public static class RelaxUpgradeBlockPatch
         __instance.DynamicVars["Block"].BaseValue = 30m;
     }
 }
+*/
