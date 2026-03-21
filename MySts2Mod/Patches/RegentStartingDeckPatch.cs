@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MySts2Mod.Cards;
 using MySts2Mod.Relics;
 
 namespace MySts2Mod.Patches;
@@ -15,6 +16,13 @@ public static class RegentStartingDeckPatch
     public static void Postfix(ref IEnumerable<CardModel> __result)
     {
         var newDeck = new List<CardModel>(__result);
+        // var testCard = ModelDb.Card<AstralDirectLinkCard>();
+        // var testCard2 = ModelDb.Card<VoidForm>();
+        // if (!newDeck.Any(c => c.Id == testCard.Id))
+        // {
+        //     newDeck.Add(testCard);
+        //     newDeck.Add(testCard2);
+        // }
         __result = newDeck;
     }
 }

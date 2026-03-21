@@ -15,6 +15,7 @@ namespace MySts2Mod.Powers;
 public class AstralDirectLinkPower : CustomPowerModel
 {
     private const string _cardsLeftKey = "CardsLeft";
+    private const decimal _blockPerTrigger = 3m;
 
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -33,11 +34,10 @@ public class AstralDirectLinkPower : CustomPowerModel
             return;
         }
 
-        // Check if card cost 0
-        if (cardPlay.Resources.EnergySpent == 0 && cardPlay.Resources.StarsSpent == 0)
+        if (cardPlay.Resources.EnergySpent == 0)
         {
             Flash();
-            await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
+            await CreatureCmd.GainBlock(Owner, _blockPerTrigger * Amount, ValueProp.Unpowered, null);
 
             DynamicVars[_cardsLeftKey].BaseValue--;
             InvokeDisplayAmountChanged();
